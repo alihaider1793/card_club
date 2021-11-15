@@ -1,9 +1,8 @@
-import 'package:card_club/pages/signin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Signup extends StatelessWidget {
-  const Signup({Key? key}) : super(key: key);
+class Signin extends StatelessWidget {
+  const Signin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,33 +33,17 @@ class Signup extends StatelessWidget {
                 ],
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Welcome!",
-                    style: TextStyle(
-                      fontSize: 33,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                    padding: const EdgeInsets.only(bottom: 38.0),
                     child: Text(
-                      "Create your Account!",
+                      "Welcome Back!",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 33,
+                        fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
-                        labelText: 'Enter your full name',
-                      ),
                     ),
                   ),
                   Padding(
@@ -82,23 +65,14 @@ class Signup extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
-                        labelText: 'Confirm password',
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25.0),
+                    padding: const EdgeInsets.only(top: 65.0),
                     child: ElevatedButton(
                       child: Padding(
                         padding: const EdgeInsets.only(top: 20, bottom: 20),
                         child: Container(
                           width: MediaQuery.of(context).size.width - 80,
                           child: Text(
-                            "Create account",
+                            "Sign in",
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 14),
                           ),
@@ -117,14 +91,7 @@ class Signup extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Signin(),
-                          ),
-                        )
-                      },
+                      onPressed: () => {},
                     ),
                   ),
                 ],
@@ -183,7 +150,7 @@ class Signup extends StatelessWidget {
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50.0),
+                              borderRadius: BorderRadius.circular(25.0),
                             ),
                           ),
                         ),
@@ -225,7 +192,7 @@ class Signup extends StatelessWidget {
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50.0),
+                              borderRadius: BorderRadius.circular(25.0),
                             ),
                           ),
                         ),
