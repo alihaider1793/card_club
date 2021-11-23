@@ -1,4 +1,4 @@
-package com.example.card_club
+package com.cardclub.reminders
 
 import io.flutter.embedding.android.FlutterActivity
 

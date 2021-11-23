@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.card_club">
+    package="com.cardclub.reminders">
    <application
         android:label="card_club"
         android:icon="@mipmap/ic_launcher">

@@ -1,12 +1,34 @@
 import 'package:card_club/pages/otp_verify.dart';
+import 'package:card_club/pages/tabs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class Signin extends StatelessWidget {
+class Signin extends StatefulWidget {
   const Signin({Key? key}) : super(key: key);
 
   @override
+  State<Signin> createState() => _SigninState();
+}
+
+class _SigninState extends State<Signin> {
+  @override
   Widget build(BuildContext context) {
+    GoogleSignIn _googleSignIn = GoogleSignIn(
+      scopes: [
+        'email',
+        'https://www.googleapis.com/auth/contacts.readonly',
+      ],
+    );
+
+    Future<void> _handleGoogleSignIn() async {
+      try {
+        await _googleSignIn.signIn();
+      } catch (error) {
+        print(error);
+      }
+    }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -97,7 +119,7 @@ class Signin extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => OTPVerify(),
+                              builder: (context) => TabBarController(),
                             ),
                           )
                         },
@@ -207,7 +229,9 @@ class Signin extends StatelessWidget {
                               ),
                             ),
                           ),
-                          onPressed: () => {},
+                          onPressed: () => {
+                            _handleGoogleSignIn(),
+                          },
                         ),
                       ),
                       Padding(

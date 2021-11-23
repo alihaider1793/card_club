@@ -1,9 +1,30 @@
 import 'package:card_club/pages/signin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class Signup extends StatelessWidget {
+class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
+
+  @override
+  State<Signup> createState() => _SignupState();
+}
+
+class _SignupState extends State<Signup> {
+  GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: [
+      'email',
+      'https://www.googleapis.com/auth/contacts.readonly',
+    ],
+  );
+
+  Future<void> _handleGoogleSignIn() async {
+    try {
+      await _googleSignIn.signIn();
+    } catch (error) {
+      print(error);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -232,24 +253,37 @@ class Signup extends StatelessWidget {
                               ),
                             ),
                           ),
-                          onPressed: () => {},
+                          onPressed: () => {
+                            _handleGoogleSignIn(),
+                          },
                         ),
                       ),
-                      Padding(
-                          padding: const EdgeInsets.only(
-                              left: 30, right: 30, top: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Already have an account? "),
-                              Text(
-                                "Sign in",
-                                style: TextStyle(
-                                  color: const Color(0xFFf2cfd4),
+                      GestureDetector(
+                        onTap: () {
+                          print('navigate to sign in page!');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Signin(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 30, right: 30, top: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("Already have an account? "),
+                                Text(
+                                  "Sign in",
+                                  style: TextStyle(
+                                    color: const Color(0xFFf2cfd4),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          )),
+                              ],
+                            )),
+                      ),
                     ],
                   ),
                 ),
