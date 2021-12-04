@@ -1,3 +1,4 @@
+import 'package:card_club/pages/edit_card.dart';
 import 'package:card_club/pages/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class TabBarController extends StatefulWidget {
 
 /// This is the private State class that goes with TabBarController.
 class _TabBarControllerState extends State<TabBarController> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 1;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -18,10 +19,7 @@ class _TabBarControllerState extends State<TabBarController> {
       'Index 0: Reminders',
       style: optionStyle,
     ),
-    Text(
-      'Index 1: Cards',
-      style: optionStyle,
-    ),
+    EditCard(),
     Text(
       'Index 2: Gifts',
       style: optionStyle,

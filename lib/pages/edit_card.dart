@@ -9,9 +9,6 @@ class EditCard extends StatefulWidget {
 }
 
 class _EditCardState extends State<EditCard> {
-  String _date = "01/01/2000";
-  String _time = "00:00:00";
-
   @override
   void initState() {
     super.initState();
@@ -24,65 +21,54 @@ class _EditCardState extends State<EditCard> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+            padding: const EdgeInsets.fromLTRB(20, 0, 0, 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(
-                      Icons.menu,
-                      color: Colors.black,
-                      size: 40,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color(0xFFf2cfd4),
-                          ),
-                          height: 50,
-                          width: 50,
-                          child: Icon(
-                            Icons.more_horiz,
-                            size: 40,
-                            color: Colors.black,
-                          ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      FlatButton(
+                        shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        SizedBox(
-                          width: 5,
+                        onPressed: () {},
+                        child: const Text(
+                          'Back',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color(0xFFf2cfd4),
-                          ),
-                          height: 50,
-                          width: 50,
-                          child: Icon(
-                            Icons.mail_outline_rounded,
-                            size: 40,
-                            color: Colors.black,
-                          ),
+                        color: const Color(0xFFf2cfd4),
+                      ),
+                      FlatButton(
+                        shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                      ],
-                    )
-                  ],
+                        onPressed: () {},
+                        child: const Text(
+                          'Next',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                        color: const Color(0xFFf2cfd4),
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 80),
+                const SizedBox(height: 50),
                 Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     SizedBox(
                       width: MediaQuery.of(context).size.width - 40,
-                      height: MediaQuery.of(context).size.height * 0.25,
+                      height: MediaQuery.of(context).size.height * 0.5,
                       child: Card(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(40),
+                              topLeft: Radius.circular(40)),
                           side: const BorderSide(
                             color: const Color(0xFFf2cfd4),
                           ),
@@ -97,35 +83,7 @@ class _EditCardState extends State<EditCard> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: const Color(0xFFf2cfd4),
-                                          ),
-                                          height: 70,
-                                          width: 70,
-                                          child: Icon(
-                                            Icons.upload,
-                                            size: 40,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ],
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('Upload'),
-                                      ],
-                                    )
-                                  ],
+                                  children: [],
                                 ),
                               )
                             ],
@@ -137,87 +95,21 @@ class _EditCardState extends State<EditCard> {
                   ],
                 ),
                 const SizedBox(height: 50),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
-                      child: Text(
-                        'Erica Williams',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
-                      child: Text(
-                        '@ericawilliams123123',
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 50),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2 - 30,
-                      height: 70,
-                      child: FlatButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DeliveryOption(),
-                              ),
-                            );
-                          },
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          color: const Color(0xFFf2cfd4),
-                          child: const Text(
-                            'Add Interest',
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
-                          )),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 2 - 30,
-                      height: 70,
-                      child: FlatButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DeliveryOption(),
-                              ),
-                            );
-                          },
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          color: const Color(0xFFf2cfd4),
-                          child: const Text(
-                            'Create Wishlist',
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
-                          )),
-                    ),
-                  ],
-                )
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.end,
+                //   children: [
+                //     Padding(
+                //       padding: const EdgeInsets.only(left: 18.0),
+                //       child: Text(
+                //         'Erica Williams',
+                //         style: TextStyle(
+                //           fontSize: 20,
+                //           fontWeight: FontWeight.bold,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),
