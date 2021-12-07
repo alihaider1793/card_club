@@ -1,3 +1,4 @@
+import 'package:card_club/pages/card_stickers.dart';
 import 'package:card_club/pages/edit_card.dart';
 import 'package:card_club/pages/profile.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +21,7 @@ class _TabBarControllerState extends State<TabBarController> {
       style: optionStyle,
     ),
     EditCard(),
-    Text(
-      'Index 2: Gifts',
-      style: optionStyle,
-    ),
+    CardStickers(),
     Profile(),
     Text(
       'Index 4: Address',
