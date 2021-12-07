@@ -37,7 +37,8 @@ dependencies:
   google_sign_in: ^5.2.1
   dotted_border: ^2.0.0+1
   image_painter: ^0.4.4+1
-
+  stick_it: ^1.0.0+2
+  flutter_colorpicker: ^1.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

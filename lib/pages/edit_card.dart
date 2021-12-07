@@ -1,9 +1,8 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'dart:ui' as ui;
-
-import 'package:flutter/services.dart';
+import 'Paint/CustomPaint.dart';
+import 'Paint/Draawing.dart';
 
 class EditCard extends StatefulWidget {
   const EditCard({Key? key}) : super(key: key);
@@ -14,20 +13,42 @@ class EditCard extends StatefulWidget {
 
 class _EditCardState extends State<EditCard> {
   late ui.Image _image;
+  List<DrawingArea?> points = [];
+  Color? selected;
+  double? stroke;
 
   @override
   void initState() {
     super.initState();
-    _loadImage();
+    selected = Colors.black;
+    stroke = 2;
   }
 
-  _loadImage() async {
-    ByteData bd = await rootBundle.load("assets/sampleImagees.jpg");
-
-    final Uint8List bytes = Uint8List.view(bd.buffer);
-    final ui.Codec codec = await ui.instantiateImageCodec(bytes);
-    final ui.Image image = (await codec.getNextFrame()).image;
-    setState(() => _image = image);
+  void selectColor() {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: const Text('Pick a color!'),
+        content: SingleChildScrollView(
+          child: BlockPicker(
+            pickerColor: selected!,
+            onColorChanged: (color) {
+              setState(() {
+                selected = color;
+              });
+            },
+          ),
+        ),
+        actions: <Widget>[
+          ElevatedButton(
+            child: const Text('Close'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -47,6 +68,7 @@ class _EditCardState extends State<EditCard> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      // ignore: deprecated_member_use
                       FlatButton(
                         shape: ContinuousRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -58,6 +80,7 @@ class _EditCardState extends State<EditCard> {
                         ),
                         color: const Color(0xFFf2cfd4),
                       ),
+                      // ignore: deprecated_member_use
                       FlatButton(
                         shape: ContinuousRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -92,18 +115,58 @@ class _EditCardState extends State<EditCard> {
                         child: SizedBox(
                           height: 50,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
                               Container(
                                 color: const Color(0xFFf2cfd4),
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    AspectRatio(
-                                      aspectRatio: 1.0,
-                                      child: CustomPaint(
-                                        painter: ImageEditor(_image),
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      width: MediaQuery.of(context).size.width *
+                                          0.7,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                                  0.5 -
+                                              10,
+                                      child: GestureDetector(
+                                        onPanDown: (details) {
+                                          setState(() {
+                                            points.add(DrawingArea(
+                                                point: details.localPosition,
+                                                areaPaint: Paint()
+                                                  ..strokeCap = StrokeCap.round
+                                                  ..isAntiAlias = true
+                                                  ..color = selected!
+                                                  ..strokeWidth = stroke!));
+                                          });
+                                        },
+                                        onPanUpdate: (details) {
+                                          setState(() {
+                                            points.add(DrawingArea(
+                                                point: details.localPosition,
+                                                areaPaint: Paint()
+                                                  ..strokeCap = StrokeCap.round
+                                                  ..isAntiAlias = true
+                                                  ..color = selected!
+                                                  ..strokeWidth = stroke!));
+                                          });
+                                        },
+                                        onPanEnd: (details) {
+                                          setState(() {
+                                            points.add(null);
+                                          });
+                                        },
+                                        child: ClipRRect(
+                                          child: CustomPaint(
+                                            painter:
+                                                MyCustomPainter(points: points),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -117,22 +180,58 @@ class _EditCardState extends State<EditCard> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 50),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.end,
-                //   children: [
-                //     Padding(
-                //       padding: const EdgeInsets.only(left: 18.0),
-                //       child: Text(
-                //         'Erica Williams',
-                //         style: TextStyle(
-                //           fontSize: 20,
-                //           fontWeight: FontWeight.bold,
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 18.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          color: Colors.white,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                Icons.color_lens,
+                                color: selected!,
+                              ),
+                              iconSize: 28,
+                              onPressed: () {
+                                selectColor();
+                              },
+                            ),
+                            Slider(
+                                min: 1,
+                                max: 7,
+                                activeColor: selected,
+                                value: stroke!,
+                                onChanged: (val) {
+                                  setState(() {
+                                    stroke = val;
+                                  });
+                                }),
+                            IconButton(
+                              icon: const Icon(Icons.layers_clear),
+                              iconSize: 28,
+                              onPressed: () {
+                                setState(() {
+                                  points.clear();
+                                });
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
