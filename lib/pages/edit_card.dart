@@ -1,5 +1,9 @@
-import 'package:card_club/pages/delivery_option.dart';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
+
+import 'package:flutter/services.dart';
 
 class EditCard extends StatefulWidget {
   const EditCard({Key? key}) : super(key: key);
@@ -9,9 +13,21 @@ class EditCard extends StatefulWidget {
 }
 
 class _EditCardState extends State<EditCard> {
+  late ui.Image _image;
+
   @override
   void initState() {
     super.initState();
+    _loadImage();
+  }
+
+  _loadImage() async {
+    ByteData bd = await rootBundle.load("assets/sampleImagees.jpg");
+
+    final Uint8List bytes = Uint8List.view(bd.buffer);
+    final ui.Codec codec = await ui.instantiateImageCodec(bytes);
+    final ui.Image image = (await codec.getNextFrame()).image;
+    setState(() => _image = image);
   }
 
   @override
@@ -83,7 +99,14 @@ class _EditCardState extends State<EditCard> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [],
+                                  children: [
+                                    AspectRatio(
+                                      aspectRatio: 1.0,
+                                      child: CustomPaint(
+                                        painter: ImageEditor(_image),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               )
                             ],
@@ -116,5 +139,23 @@ class _EditCardState extends State<EditCard> {
         ),
       ),
     );
+  }
+}
+
+class ImageEditor extends CustomPainter {
+  ui.Image image;
+
+  ImageEditor(this.image) : super();
+
+  @override
+  Future paint(Canvas canvas, Size size) async {
+    if (image != null) {
+      canvas.drawImage(image, Offset(0.0, 0.0), Paint());
+    }
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return image != (oldDelegate as ImageEditor).image;
   }
 }
