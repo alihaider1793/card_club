@@ -2,7 +2,8 @@ import 'package:card_club/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyApp(
+  ));
 }
 
 class MyApp extends StatelessWidget {

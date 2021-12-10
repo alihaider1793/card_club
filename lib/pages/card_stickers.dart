@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:stick_it/stick_it.dart';
 import 'dart:ui' as ui;
-import 'Paint/CustomPaint.dart';
-import 'Paint/Draawing.dart';
+import '../InsideTabs/Paint/CustomPaint.dart';
+import '../InsideTabs/Paint/Draawing.dart';
 import 'TextDisplay.dart';
 
 class CardStickers extends StatefulWidget {

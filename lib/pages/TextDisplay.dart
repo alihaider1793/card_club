@@ -19,7 +19,7 @@ class _TextDisplayState extends State<TextDisplay> {
       left: offset.dx,
       top: offset.dy,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 240, 8, 0),
+        padding: const EdgeInsets.fromLTRB(120, 140, 8, 0),
         child: Column(
           children: [
             TextDisplay.shouldDisplay
