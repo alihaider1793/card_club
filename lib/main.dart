@@ -1,5 +1,4 @@
 import 'package:card_club/pages/signup.dart';
-import 'package:card_club/pages/tabs.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -92,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => TabBarController(),
+                              builder: (context) => Signup(),
                             ),
                           );
                         },

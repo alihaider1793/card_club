@@ -148,7 +148,7 @@ class OTPVerify extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Birthday(),
+                                  builder: (context) => EnableNotification(),
                                 ),
                               )
                             },

@@ -171,14 +171,7 @@ class _ProfileState extends State<Profile> {
                       width: MediaQuery.of(context).size.width / 2 - 30,
                       height: 70,
                       child: FlatButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DeliveryOption(),
-                              ),
-                            );
-                          },
+                          onPressed: () {},
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -197,14 +190,7 @@ class _ProfileState extends State<Profile> {
                       width: MediaQuery.of(context).size.width / 2 - 30,
                       height: 70,
                       child: FlatButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DeliveryOption(),
-                              ),
-                            );
-                          },
+                          onPressed: () {},
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),

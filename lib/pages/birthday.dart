@@ -1,4 +1,5 @@
 import 'package:card_club/pages/enable_notification.dart';
+import 'package:card_club/pages/signin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -416,7 +417,7 @@ class _BirthdayState extends State<Birthday> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => EnableNotification(),
+                              builder: (context) => Signin(),
                             ),
                           );
                         },

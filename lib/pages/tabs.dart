@@ -1,4 +1,5 @@
 import 'package:card_club/pages/card_stickers.dart';
+import 'package:card_club/pages/date_time.dart';
 import 'package:card_club/pages/edit_card.dart';
 import 'package:card_club/pages/profile.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +13,11 @@ class TabBarController extends StatefulWidget {
 
 /// This is the private State class that goes with TabBarController.
 class _TabBarControllerState extends State<TabBarController> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Reminders',
-      style: optionStyle,
-    ),
+    SetDate(),
     EditCard(),
     CardStickers(),
     Profile(),

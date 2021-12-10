@@ -1,3 +1,6 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:card_club/pages/tabs.dart';
 import 'package:flutter/material.dart';
 import 'date_time.dart';
 
@@ -28,26 +31,11 @@ class _DeliveryState extends State<DeliveryOption> {
                 FlatButton.icon(
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                            transitionDuration: const Duration(seconds: 1),
-                            transitionsBuilder: (BuildContext context,
-                                Animation<double> animation,
-                                Animation<double> secAnimation,
-                                Widget child) {
-                              animation = CurvedAnimation(
-                                  parent: animation, curve: Curves.bounceInOut);
-                              return ScaleTransition(
-                                alignment: Alignment.center,
-                                scale: animation,
-                                child: child,
-                              );
-                            },
-                            pageBuilder: (BuildContext context,
-                                Animation<double> animation,
-                                Animation<double> secAnimation) {
-                              return const SetDate();
-                            }));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TabBarController(),
+                      ),
+                    );
                   },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -107,7 +95,9 @@ class _DeliveryState extends State<DeliveryOption> {
                       child: Text(
                         'Send via Text',
                         textAlign: TextAlign.start,
-                        style: pressAttention? TextStyle(color: Colors.white): TextStyle(color: Colors.grey),
+                        style: pressAttention
+                            ? TextStyle(color: Colors.white)
+                            : TextStyle(color: Colors.grey),
                       ),
                     ),
                   ),
@@ -136,7 +126,9 @@ class _DeliveryState extends State<DeliveryOption> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Send via email',
-                        style: pressAttention1? TextStyle(color: Colors.white): TextStyle(color: Colors.grey),
+                        style: pressAttention1
+                            ? TextStyle(color: Colors.white)
+                            : TextStyle(color: Colors.grey),
                       ),
                     ),
                   ),
@@ -165,7 +157,9 @@ class _DeliveryState extends State<DeliveryOption> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Send a physical card',
-                        style: pressAttention2? TextStyle(color: Colors.white): TextStyle(color: Colors.grey),
+                        style: pressAttention2
+                            ? TextStyle(color: Colors.white)
+                            : TextStyle(color: Colors.grey),
                       ),
                     ),
                   ),

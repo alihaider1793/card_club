@@ -1,4 +1,5 @@
 import 'package:card_club/pages/date_time.dart';
+import 'package:card_club/pages/tabs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -77,7 +78,14 @@ class EnableNotification extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () => {},
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TabBarController(),
+                          ),
+                        )
+                      },
                     ),
                   ],
                 ),
@@ -185,7 +193,7 @@ class EnableNotification extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SetDate(),
+                              builder: (context) => TabBarController(),
                             ),
                           )
                         },

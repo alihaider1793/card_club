@@ -1,4 +1,5 @@
 import 'package:card_club/pages/otp_verify.dart';
+import 'package:card_club/pages/signup.dart';
 import 'package:card_club/pages/tabs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -119,7 +120,7 @@ class _SigninState extends State<Signin> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => TabBarController(),
+                              builder: (context) => OTPVerify(),
                             ),
                           )
                         },
@@ -131,7 +132,7 @@ class _SigninState extends State<Signin> {
               Padding(
                 padding: const EdgeInsets.only(top: 1.0),
                 child: Container(
-                  height: (MediaQuery.of(context).size.height * 35) / 100,
+                  height: (MediaQuery.of(context).size.height * 37) / 100,
                   width: MediaQuery.of(context).size.width,
                   color: Colors.white,
                   child: Column(
@@ -235,20 +236,31 @@ class _SigninState extends State<Signin> {
                         ),
                       ),
                       Padding(
-                          padding: const EdgeInsets.only(
-                              left: 30, right: 30, top: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Don't have an account? "),
-                              Text(
+                        padding:
+                            const EdgeInsets.only(left: 30, right: 30, top: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Don't have an account? "),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Signup(),
+                                  ),
+                                );
+                              },
+                              child: Text(
                                 "Sign up",
                                 style: TextStyle(
                                   color: const Color(0xFFf2cfd4),
                                 ),
                               ),
-                            ],
-                          )),
+                            )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

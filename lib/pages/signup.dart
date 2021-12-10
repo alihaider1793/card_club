@@ -1,3 +1,4 @@
+import 'package:card_club/pages/birthday.dart';
 import 'package:card_club/pages/signin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -143,7 +144,7 @@ class _SignupState extends State<Signup> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Signin(),
+                              builder: (context) => Birthday(),
                             ),
                           )
                         },
@@ -155,7 +156,7 @@ class _SignupState extends State<Signup> {
               Padding(
                 padding: const EdgeInsets.only(top: 1.0),
                 child: Container(
-                  height: (MediaQuery.of(context).size.height * 35) / 100,
+                  height: (MediaQuery.of(context).size.height * 37) / 100,
                   width: MediaQuery.of(context).size.width,
                   color: Colors.white,
                   child: Column(
