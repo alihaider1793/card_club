@@ -1,7 +1,9 @@
 import 'package:card_club/pages/birthday.dart';
 import 'package:card_club/pages/signin.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Signup extends StatefulWidget {
@@ -27,6 +29,27 @@ class _SignupState extends State<Signup> {
     }
   }
 
+  late Map<String, dynamic> _userData;
+
+
+  //facebook handler
+  Future<UserCredential> _handleFacebookLogin() async {
+    final LoginResult loginResult = await FacebookAuth.instance.login(
+        permissions: ['email']);
+    if (loginResult == LoginStatus.success) {
+      final userData = await FacebookAuth.instance.getUserData();
+      _userData = userData;
+    }
+    else {
+      print(loginResult.message);
+    }
+
+
+    final OAuthCredential oAuthCredential = FacebookAuthProvider.credential(
+        loginResult.accessToken!.token);
+    return FirebaseAuth.instance.signInWithCredential(oAuthCredential);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +59,20 @@ class _SignupState extends State<Signup> {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: ((MediaQuery.of(context).size.height * 10) / 100) - 1,
+                height: ((MediaQuery
+                    .of(context)
+                    .size
+                    .height * 10) / 100) - 1,
               ),
               Container(
-                height: (MediaQuery.of(context).size.height * 55) / 100,
-                width: MediaQuery.of(context).size.width,
+                height: (MediaQuery
+                    .of(context)
+                    .size
+                    .height * 55) / 100,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
                 decoration: new BoxDecoration(
                   color: Colors.white,
                   borderRadius: new BorderRadius.only(
@@ -119,7 +151,10 @@ class _SignupState extends State<Signup> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 20, bottom: 20),
                           child: Container(
-                            width: MediaQuery.of(context).size.width - 80,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width - 80,
                             child: Text(
                               "Create account",
                               textAlign: TextAlign.center,
@@ -129,18 +164,19 @@ class _SignupState extends State<Signup> {
                         ),
                         style: ButtonStyle(
                           foregroundColor:
-                              MaterialStateProperty.all<Color>(Colors.white),
+                          MaterialStateProperty.all<Color>(Colors.white),
                           backgroundColor: MaterialStateProperty.all<Color>(
                             const Color(0xFFf2cfd4),
                           ),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50.0),
                             ),
                           ),
                         ),
-                        onPressed: () => {
+                        onPressed: () =>
+                        {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -156,15 +192,21 @@ class _SignupState extends State<Signup> {
               Padding(
                 padding: const EdgeInsets.only(top: 1.0),
                 child: Container(
-                  height: (MediaQuery.of(context).size.height * 37) / 100,
-                  width: MediaQuery.of(context).size.width,
+                  height: (MediaQuery
+                      .of(context)
+                      .size
+                      .height * 37) / 100,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
                   color: Colors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsets.only(left: 30, right: 30, top: 30),
+                        const EdgeInsets.only(left: 30, right: 30, top: 30),
                         child: Text(
                           '- OR -',
                           style: TextStyle(fontSize: 18),
@@ -173,15 +215,18 @@ class _SignupState extends State<Signup> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.only(left: 30, right: 30, top: 30),
+                        const EdgeInsets.only(left: 30, right: 30, top: 30),
                         child: ElevatedButton(
                           child: Padding(
                             padding: const EdgeInsets.only(top: 20, bottom: 20),
                             child: Container(
-                              width: MediaQuery.of(context).size.width - 50,
+                              width: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .width - 50,
                               child: Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Icon(
                                     Icons.facebook,
@@ -201,9 +246,9 @@ class _SignupState extends State<Signup> {
                           ),
                           style: ButtonStyle(
                             foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.black),
+                            MaterialStateProperty.all<Color>(Colors.black),
                             backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
+                            MaterialStateProperty.all<Color>(Colors.white),
                             shape: MaterialStateProperty.all<
                                 RoundedRectangleBorder>(
                               RoundedRectangleBorder(
@@ -211,25 +256,31 @@ class _SignupState extends State<Signup> {
                               ),
                             ),
                           ),
-                          onPressed: () => {},
+                          onPressed: () =>
+                          {
+                            _handleFacebookLogin(),
+                          },
                         ),
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.only(left: 30, right: 30, top: 10),
+                        const EdgeInsets.only(left: 30, right: 30, top: 10),
                         child: ElevatedButton(
                           child: Padding(
                             padding: const EdgeInsets.only(top: 20, bottom: 20),
                             child: Container(
-                              width: MediaQuery.of(context).size.width - 50,
+                              width: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .width - 50,
                               child: Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Container(
                                     height: 20,
                                     child:
-                                        Image.asset('assets/images/google.png'),
+                                    Image.asset('assets/images/google.png'),
                                   ),
                                   Text(
                                     "Sign in with Google",
@@ -244,9 +295,9 @@ class _SignupState extends State<Signup> {
                           ),
                           style: ButtonStyle(
                             foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.black),
+                            MaterialStateProperty.all<Color>(Colors.black),
                             backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
+                            MaterialStateProperty.all<Color>(Colors.white),
                             shape: MaterialStateProperty.all<
                                 RoundedRectangleBorder>(
                               RoundedRectangleBorder(
@@ -254,7 +305,8 @@ class _SignupState extends State<Signup> {
                               ),
                             ),
                           ),
-                          onPressed: () => {
+                          onPressed: () =>
+                          {
                             _handleGoogleSignIn(),
                           },
                         ),

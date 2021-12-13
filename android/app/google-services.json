@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "837997840796",
-    "project_id": "project-3a455",
-    "storage_bucket": "project-3a455.appspot.com"
+    "project_number": "1091395007752",
+    "project_id": "card-club-51357",
+    "storage_bucket": "card-club-51357.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:837997840796:android:10a652170e0e23686fe059",
+        "mobilesdk_app_id": "1:1091395007752:android:bbd0cb3d11005b37d328bd",
         "android_client_info": {
           "package_name": "com.cardclub.reminders"
         }
       },
       "oauth_client": [
         {
-          "client_id": "837997840796-jn3hns57a4ufh9qh58an45ae08qupc3b.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.cardclub.reminders",
-            "certificate_hash": "de10db5f595a9e9adaf358e9f978a8b2e8ca7967"
-          }
-        },
-        {
-          "client_id": "837997840796-q46if5mr1dvklpc4a3s37cn458l5hi8r.apps.googleusercontent.com",
+          "client_id": "1091395007752-23ult2bsbaq7b193durdbk8d5u0oujj3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDD3zYDnUopK4KDC8IDiTnqEbz_UsAICjg"
+          "current_key": "AIzaSyAbrSswzeJs2TrPAczOWX0EXqZMmFkjrPk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "837997840796-q46if5mr1dvklpc4a3s37cn458l5hi8r.apps.googleusercontent.com",
+              "client_id": "1091395007752-23ult2bsbaq7b193durdbk8d5u0oujj3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

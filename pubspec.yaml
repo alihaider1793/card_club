@@ -39,6 +39,11 @@ dependencies:
   image_painter: ^0.4.4+1
   stick_it: ^1.0.0+2
   flutter_colorpicker: ^1.0.2
+  firebase_auth: ^3.3.3
+  firebase_core: ^1.10.5
+  flutter_facebook_auth: ^3.5.7
+  image_picker: ^0.8.4+4
+  get: ^4.5.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
