@@ -1,4 +1,4 @@
-import 'package:card_club/pages/TextDisplay.dart';
+import 'package:card_club/InsideTabs/sharedstates/TextDisplay.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'dart:ui' as ui;

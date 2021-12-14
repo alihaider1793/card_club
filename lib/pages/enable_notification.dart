@@ -1,7 +1,7 @@
-import 'package:card_club/pages/date_time.dart';
-import 'package:card_club/pages/tabs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../OutsideTabs/tabs.dart';
 
 class EnableNotification extends StatelessWidget {
   const EnableNotification({Key? key}) : super(key: key);

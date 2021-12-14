@@ -1,6 +1,5 @@
 import 'package:card_club/pages/otp_verify.dart';
 import 'package:card_club/pages/signup.dart';
-import 'package:card_club/pages/tabs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';

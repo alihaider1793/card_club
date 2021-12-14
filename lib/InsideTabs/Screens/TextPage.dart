@@ -3,7 +3,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:stick_it/stick_it.dart';
 import 'dart:ui' as ui;
 
-import '../../pages/TextDisplay.dart';
+import '../sharedstates/TextDisplay.dart';
 import '../Paint/CustomPaint.dart';
 import '../Paint/Draawing.dart';
 import '../sharedstates/sharedcard.dart';

@@ -14,7 +14,7 @@ Offset offset = Offset.zero;
 class _TextDisplayState extends State<TextDisplay> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Positioned(
       left: offset.dx,
       top: offset.dy,

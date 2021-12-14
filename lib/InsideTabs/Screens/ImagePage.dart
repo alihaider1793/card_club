@@ -15,6 +15,8 @@ class ImagePage extends StatefulWidget {
   _ImagePageState createState() => _ImagePageState();
 }
 
+Offset offset = Offset.zero;
+
 class _ImagePageState extends State<ImagePage> {
   @override
   void initState() {
@@ -84,7 +86,8 @@ class _ImagePageState extends State<ImagePage> {
                     height: 15,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 80,vertical: 0),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 80, vertical: 0),
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(primary: Colors.white),
                       onPressed: () {
@@ -209,26 +212,39 @@ class _ImagePageState extends State<ImagePage> {
                   children: [
                     SharedCard(),
                     pickedImage != null
-                        ? Padding(
-                            padding: const EdgeInsets.fromLTRB(100, 6.5, 6, 0),
-                            child: Container(
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                ),
-                                width: MediaQuery.of(context).size.width * 0.35,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.25,
-                                child: Image.file(
-                                  pickedImage!,
-                                  width: 20,
-                                  height: 20,
-                                  fit: BoxFit.cover,
-                                )),
+                        ? Positioned(
+                            left: offset.dx,
+                            top: offset.dy,
+                            child: GestureDetector(
+                              onPanUpdate: (details) {
+                                setState(() {
+                                  offset = Offset(offset.dx + details.delta.dx,
+                                      offset.dy + details.delta.dy);
+                                });
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(100, 6.5, 6, 0),
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                    ),
+                                    width: MediaQuery.of(context).size.width *
+                                        0.35,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.25,
+                                    child: Image.file(
+                                      pickedImage!,
+                                      width: 20,
+                                      height: 20,
+                                      fit: BoxFit.cover,
+                                    )),
+                              ),
+                            ),
                           )
                         : Container(
-                            color: Colors.white,
+                            color: Colors.red,
                           ),
-
                   ],
                 ),
                 Center(

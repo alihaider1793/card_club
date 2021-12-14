@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:card_club/pages/tabs.dart';
 import 'package:flutter/material.dart';
-import 'date_time.dart';
+import '../OutsideTabs/tabs.dart';
+
 
 class DeliveryOption extends StatefulWidget {
   const DeliveryOption({Key? key}) : super(key: key);

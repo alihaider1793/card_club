@@ -1,8 +1,8 @@
-import 'package:card_club/pages/card_stickers.dart';
-import 'package:card_club/pages/date_time.dart';
-import 'package:card_club/pages/edit_card.dart';
-import 'package:card_club/pages/profile.dart';
 import 'package:flutter/material.dart';
+import 'Screens/Gifts.dart';
+import 'Screens/Reminders.dart';
+import 'Screens/Cards.dart';
+import 'Screens/profile.dart';
 
 class TabBarController extends StatefulWidget {
   const TabBarController({Key? key}) : super(key: key);
@@ -17,9 +17,9 @@ class _TabBarControllerState extends State<TabBarController> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    SetDate(),
+    Reminder(),
     EditCard(),
-    CardStickers(),
+    Gifts(),
     Profile(),
     Text(
       'Index 4: Address',
