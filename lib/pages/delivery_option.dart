@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import '../OutsideTabs/tabs.dart';
 
-
 class DeliveryOption extends StatefulWidget {
   const DeliveryOption({Key? key}) : super(key: key);
 
@@ -30,12 +29,7 @@ class _DeliveryState extends State<DeliveryOption> {
                 const SizedBox(height: 30),
                 FlatButton.icon(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TabBarController(),
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),

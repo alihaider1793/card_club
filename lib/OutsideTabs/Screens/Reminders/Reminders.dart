@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import '../../pages/delivery_option.dart';
+import '../../../pages/delivery_option.dart';
 
 class Reminder extends StatefulWidget {
   const Reminder({Key? key}) : super(key: key);
@@ -30,10 +30,11 @@ class _ReminderState extends State<Reminder> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFf2cfd4),
         body: SingleChildScrollView(
           child: SafeArea(
             child: Container(
+              color: Colors.white,
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +42,7 @@ class _ReminderState extends State<Reminder> {
                   const SizedBox(height: 30),
                   FlatButton(
                     onPressed: () {
-                      // Navigator.of(context).popUntil(ModalRoute.withName('/'));
+                      Navigator.pop(context);
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),

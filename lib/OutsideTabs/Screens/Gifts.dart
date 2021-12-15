@@ -40,9 +40,9 @@ class _GiftsState extends State<Gifts> {
                 Container(
                   width: size.width * 1,
                   height: size.height * 0.4,
-                  color: Colors.white,
+                  color: Colors.transparent,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,29 +73,26 @@ class _GiftsState extends State<Gifts> {
                       ),
                       Container(
                         color: Colors.transparent,
-                        width: size.width * 0.6,
-                        height: size.height * 0.4,
+                        width: size.width * 0.676,
+                        height: size.height * 0.3,
                         child: GridView.count(
                           // Create a grid with 2 columns. If you change the scrollDirection to
                           // horizontal, this produces 2 rows.
                           crossAxisCount: 1,
                           crossAxisSpacing: 0,
-                          mainAxisSpacing: 0,
                           scrollDirection: Axis.horizontal,
+
                           children: List.generate(
-                            50,
+                            20,
                             (index) {
-                              return GestureDetector(
-                                onTap: () {},
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Stack(
-                                    children: [
-                                      Image(
-                                        image: AssetImage('assets/images/custombox.png'),
-                                      ),
-                                    ],
-                                  ),
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(12.0),
+                                child: Image(
+
+                                  image:
+                                      AssetImage('assets/images/custombox.png'),
+
+                                  fit: BoxFit.contain,
                                 ),
                               );
                             },
@@ -109,22 +106,26 @@ class _GiftsState extends State<Gifts> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Most Popular',
+                    Text(
+                      'Most Popular',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                      ),),
-                    Text('See all',
+                      ),
+                    ),
+                    Text(
+                      'See all',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.grey,
-                         ),),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(height: 8),
                 Container(
                   color: Colors.transparent,
-                  width: size.width * 1,
+                  width: size.width * 0.9,
                   height: size.height * 0.225,
                   child: GridView.count(
                     // Create a grid with 2 columns. If you change the scrollDirection to
@@ -135,32 +136,33 @@ class _GiftsState extends State<Gifts> {
                     //scrollDirection: Axis.horizontal,
                     children: List.generate(
                       50,
-                          (index) {
+                      (index) {
                         return GestureDetector(
                           onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Image(
-                                  image: AssetImage('assets/images/gift1png.png'),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(15.0),
+                                child: Image(
+                                  image:
+                                      AssetImage('assets/images/gift1png.png'),
                                 ),
-                                SizedBox(width: 10,),
-                                Text('Customizable digital eGift \nCards',
-                                style: TextStyle(
-                                  fontSize: 18
-                                ),),
-                              ],
-                            ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Customizable digital eGift \nCards',
+                                style: TextStyle(fontSize: 18),
+                              ),
+                            ],
                           ),
                         );
                       },
                     ),
                   ),
                 ),
-
-
               ],
             ),
           ),

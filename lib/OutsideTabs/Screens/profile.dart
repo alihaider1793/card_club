@@ -1,3 +1,4 @@
+import 'package:card_club/OutsideTabs/Screens/Interests.dart';
 import 'package:card_club/pages/delivery_option.dart';
 import 'package:flutter/material.dart';
 
@@ -171,7 +172,12 @@ class _ProfileState extends State<Profile> {
                       width: MediaQuery.of(context).size.width / 2 - 30,
                       height: 70,
                       child: FlatButton(
-                          onPressed: () {},
+                          onPressed: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Interests(),
+                            ),
+                          );},
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
