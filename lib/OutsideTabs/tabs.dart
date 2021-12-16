@@ -1,4 +1,6 @@
+import 'package:card_club/OutsideTabs/Screens/Address.dart';
 import 'package:card_club/OutsideTabs/Screens/Reminders/LandingReminder.dart';
+import 'package:card_club/OutsideTabs/Screens/date_time.dart';
 import 'package:flutter/material.dart';
 import 'Screens/Gifts.dart';
 import 'Screens/Reminders/Reminders.dart';
@@ -22,10 +24,7 @@ class _TabBarControllerState extends State<TabBarController> {
     EditCard(),
     Gifts(),
     Profile(),
-    Text(
-      'Index 4: Address',
-      style: optionStyle,
-    ),
+    Address(),
   ];
 
   void _onItemTapped(int index) {

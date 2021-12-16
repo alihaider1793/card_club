@@ -14,7 +14,7 @@ Offset offset = Offset.zero;
 class _TextDisplayState extends State<TextDisplay> {
   @override
   Widget build(BuildContext context) {
-    // Size size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     return Positioned(
       left: offset.dx,
       top: offset.dy,
@@ -43,11 +43,10 @@ class _TextDisplayState extends State<TextDisplay> {
                       ),
                     ),
                   )
-                : const SizedBox(
-                    height: 0,
-                    width: 0,
+                :  SizedBox(
+                    height: size.height*0,
+                    width: size.width*0,
                   ),
-            const SizedBox(height: 20),
           ],
         ),
       ),

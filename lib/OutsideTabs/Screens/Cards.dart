@@ -30,7 +30,7 @@ class _EditCardState extends State<EditCard> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 60),
+                  SizedBox(height: size.height*0.1),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 10),
@@ -44,13 +44,13 @@ class _EditCardState extends State<EditCard> {
                           ),
                         ),
                         SizedBox(
-                          width: 15,
+                          width: size.width*0.05,
                         ),
                         Text(
                           'Hi, Erika',
                           style: TextStyle(color: Colors.white, fontSize: 30),
                         ),
-                        SizedBox(width: 110),
+                        SizedBox(width: size.width*0.25),
                         Icon(
                           Icons.shopping_cart_outlined,
                           color: Colors.white,
@@ -64,7 +64,7 @@ class _EditCardState extends State<EditCard> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10),
+                  //SizedBox(height: size.height*0.007),
                   Container(
                     width: size.width * 1,
                     height: size.height * 0.7949,
@@ -84,7 +84,7 @@ class _EditCardState extends State<EditCard> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(height: 35),
+                                SizedBox(height: size.height*0.04),
                                 SizedBox(
                                   width: size.width * 0.85,
                                   child: TextField(
@@ -110,7 +110,7 @@ class _EditCardState extends State<EditCard> {
                                     },
                                   ),
                                 ),
-                                SizedBox(height: 35),
+                                SizedBox(height: size.height*0.04),
                                 Text(
                                   'Best Seller Products',
                                   style: TextStyle(
@@ -118,33 +118,36 @@ class _EditCardState extends State<EditCard> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                SizedBox(height: 15),
-                                Stack(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(15.0),
-                                      child: Image(
-                                        image: AssetImage(
-                                            'assets/images/shop_now_bg.png'),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          15, 90, 10, 0),
-                                      child: FlatButton(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          //    side:  const BorderSide(color: Colors.grey)
+                                SizedBox(height: size.height*0.025),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:7),
+                                  child: Stack(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(15.0),
+                                        child: Image(
+                                          image: AssetImage(
+                                              'assets/images/shop_now_bg.png'),
                                         ),
-                                        onPressed: () {},
-                                        child: Text('Shop now'),
-                                        color: Colors.white,
                                       ),
-                                    )
-                                  ],
+                                      Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            15, 90, 10, 0),
+                                        child: FlatButton(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            //    side:  const BorderSide(color: Colors.grey)
+                                          ),
+                                          onPressed: () {},
+                                          child: Text('Shop now'),
+                                          color: Colors.white,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                                SizedBox(height: 25),
+                                SizedBox(height: size.height*0.03),
                                 Text(
                                   'Best Products',
                                   style: TextStyle(
@@ -152,7 +155,7 @@ class _EditCardState extends State<EditCard> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                SizedBox(height: size.height*0.02),
                               ],
                             ),
                           ),

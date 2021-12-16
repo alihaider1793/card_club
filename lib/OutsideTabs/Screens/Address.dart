@@ -1,15 +1,15 @@
-import 'package:card_club/pages/delivery_option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-class SetDate extends StatefulWidget {
-  const SetDate({Key? key}) : super(key: key);
+import '../../pages/delivery_option.dart';
+class Address extends StatefulWidget {
+  const Address({Key? key}) : super(key: key);
 
   @override
-  _SetDateState createState() => _SetDateState();
+  _AddressState createState() => _AddressState();
 }
 
-class _SetDateState extends State<SetDate> {
+class _AddressState extends State<Address> {
   String _date = "01/01/2000";
   String _time = "00:00:00";
 
@@ -111,10 +111,10 @@ class _SetDateState extends State<SetDate> {
                                         minTime: DateTime(2000, 1, 1),
                                         maxTime: DateTime(2022, 12, 31),
                                         onConfirm: (date) {
-                                      _date =
+                                          _date =
                                           '${date.day}/${date.month}/${date.year}';
-                                      setState(() {});
-                                    },
+                                          setState(() {});
+                                        },
                                         currentTime: DateTime.now(),
                                         locale: LocaleType.en);
                                   },
@@ -148,7 +148,7 @@ class _SetDateState extends State<SetDate> {
                                         style: const TextStyle(
                                             color: Colors.grey, fontSize: 16.0),
                                       ),
-                                       SizedBox(
+                                      SizedBox(
                                         width: size.width*0.1,
                                       ),
                                       IconButton(
@@ -159,10 +159,10 @@ class _SetDateState extends State<SetDate> {
                                                 ),
                                                 showTitleActions: true,
                                                 onConfirm: (time) {
-                                              _time =
+                                                  _time =
                                                   '${time.hour} : ${time.minute} : ${time.second}';
-                                              setState(() {});
-                                            },
+                                                  setState(() {});
+                                                },
                                                 currentTime: DateTime.now(),
                                                 locale: LocaleType.en);
                                             setState(() {});

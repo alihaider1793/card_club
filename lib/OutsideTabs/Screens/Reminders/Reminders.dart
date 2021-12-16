@@ -39,7 +39,7 @@ class _ReminderState extends State<Reminder> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 30),
+                  SizedBox(height: size.height*0.045),
                   FlatButton(
                     onPressed: () {
                       Navigator.pop(context);
@@ -58,7 +58,7 @@ class _ReminderState extends State<Reminder> {
                     ),
                     color: Color(0xFFf2cfd4),
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: size.height*0.025),
                   const Text(
                     'Create New Reminder',
                     textAlign: TextAlign.center,
@@ -68,7 +68,7 @@ class _ReminderState extends State<Reminder> {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: size.height*0.025),
                   const Text(
                     'Title',
                     textAlign: TextAlign.center,
@@ -77,7 +77,7 @@ class _ReminderState extends State<Reminder> {
                       color: Colors.grey,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: size.height*0.022),
                   TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -96,7 +96,7 @@ class _ReminderState extends State<Reminder> {
                       setState(() {});
                     },
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: size.height*0.025),
                   const Text(
                     'Date & Time',
                     style: TextStyle(
@@ -104,7 +104,7 @@ class _ReminderState extends State<Reminder> {
                       color: Colors.grey,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: size.height*0.022),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,7 +116,7 @@ class _ReminderState extends State<Reminder> {
                               borderRadius: BorderRadius.circular(10),
                               side: const BorderSide(color: Colors.grey)),
                           child: SizedBox(
-                            height: 50,
+                            height: size.height*0.07,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
@@ -135,7 +135,7 @@ class _ReminderState extends State<Reminder> {
                                     )
                                   ],
                                 ),
-                                SizedBox(width: 20),
+                                SizedBox(width: size.width*0.07),
                                 IconButton(
                                     onPressed: () {
                                       DatePicker.showDatePicker(context,
@@ -170,7 +170,7 @@ class _ReminderState extends State<Reminder> {
                               borderRadius: BorderRadius.circular(10),
                               side: const BorderSide(color: Colors.grey)),
                           child: SizedBox(
-                            height: 50,
+                            height: size.height*0.07,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
@@ -184,8 +184,8 @@ class _ReminderState extends State<Reminder> {
                                               color: Colors.grey,
                                               fontSize: 16.0),
                                         ),
-                                        const SizedBox(
-                                          width: 50,
+                                         SizedBox(
+                                          width: size.width*0.12,
                                         ),
                                         IconButton(
                                             onPressed: () {
@@ -219,7 +219,7 @@ class _ReminderState extends State<Reminder> {
                       )
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: size.height*0.025),
                   const Text(
                     'Relationship',
                     style: TextStyle(
@@ -227,7 +227,7 @@ class _ReminderState extends State<Reminder> {
                       color: Colors.grey,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: size.height*0.022),
                   DropdownButtonFormField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -257,7 +257,7 @@ class _ReminderState extends State<Reminder> {
                       Reminder.valx = val.toString();
                     }),
                   ),
-                  SizedBox(height: 3),
+                  SizedBox(height: size.height*0.01),
                   Container(
                     width: size.width * 1,
                     height: size.height * 0.25,
@@ -289,7 +289,7 @@ class _ReminderState extends State<Reminder> {
                               color: Colors.grey,
                               thickness: 1,
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: size.height*0.025),
                             Reminder.valx != null
                                 ? Text(
                                     Reminder.valx!,
@@ -306,7 +306,7 @@ class _ReminderState extends State<Reminder> {
                               color: Colors.grey,
                               thickness: 1,
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: size.height*0.025),
                             Padding(
                               padding: const EdgeInsets.only(left: 188),
                               child: FlatButton.icon(
@@ -330,7 +330,7 @@ class _ReminderState extends State<Reminder> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: size.height*0.02),
                   const Text(
                     'Add recipient',
                     style: TextStyle(
@@ -338,7 +338,7 @@ class _ReminderState extends State<Reminder> {
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: size.height*0.02),
                   Row(
                     children: [
                       Stack(
@@ -373,12 +373,12 @@ class _ReminderState extends State<Reminder> {
                       )
                     ],
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: size.height*0.02),
                   Padding(
-                    padding: const EdgeInsets.only(left: 18),
+                    padding: const EdgeInsets.only(left: 40),
                     child: SizedBox(
-                      width: size.width * 0.8,
-                      height: 50,
+                      width: size.width * 0.7,
+                        height: size.height*0.07,
                       child: FlatButton(
                           onPressed: () {
                             Navigator.push(

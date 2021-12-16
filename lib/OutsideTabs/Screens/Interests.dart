@@ -11,6 +11,82 @@ class _InterestsState extends State<Interests> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    openAlertBox() {
+      return showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              backgroundColor: const Color(0xFFf2cfd4),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(32.0))),
+              contentPadding: EdgeInsets.only(top: 10.0),
+              content: Container(
+                width: size.width * 0.7,
+                height: size.height * 0.3,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 40.0, vertical: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Hey Erika Williams',
+                        style: TextStyle(
+                          fontSize: 22.5,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(
+                        height: size.height*0.02,
+                      ),
+                      Text(
+                        'Your changes have been saved',
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            width: size.width * 0.2,
+                            height: size.height * 0.05,
+                            child: RaisedButton(
+                              elevation: 2,
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                //    side:  const BorderSide(color: Colors.grey)
+                              ),
+                              child: const Text(
+                                'Done',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xFFf2cfd4),
+                                ),
+                              ),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            );
+          });
+    }
+
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
@@ -69,7 +145,7 @@ class _InterestsState extends State<Interests> {
                       '@erikawilliams33254',
                       style: TextStyle(fontSize: 18),
                     ),
-                    SizedBox(width: 60),
+                    SizedBox(width: size.width*0.2),
                     IconButton(
                       icon: Icon(Icons.mode_edit_sharp),
                       color: const Color(0xFFf2cfd4),
@@ -90,6 +166,7 @@ class _InterestsState extends State<Interests> {
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,7 +182,6 @@ class _InterestsState extends State<Interests> {
                               )
                             ],
                           ),
-                          SizedBox(width: 80),
                           Icon(Icons.toggle_on,
                               size: 50, color: const Color(0xFFf2cfd4)),
                         ],
@@ -113,80 +189,152 @@ class _InterestsState extends State<Interests> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
-                Row(
+                SizedBox(height: size.height*0.03),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
-                      Icons.add,
-                      color: const Color(0xFFf2cfd4),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: size.width * 0.055,
+                              height: size.height * 0.03,
+                              decoration: new BoxDecoration(
+                                color: const Color(0xFFf2cfd4),
+                                borderRadius: new BorderRadius.circular(3),
+                              ),
+                              child: Icon(
+                                Icons.refresh,
+                                color: Colors.white,
+                                size: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: size.width*0.03),
+                        Container(
+                          width: size.width * 0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'About you...',
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 18),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios_sharp,
+                                size: 15,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                    SizedBox(width: 10),
-                    Text(
-                      'About you...',
-                      style: TextStyle(color: Colors.grey, fontSize: 18),
+                    SizedBox(height: size.height*0.015),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: size.width * 0.055,
+                              height: size.height * 0.03,
+                              decoration: new BoxDecoration(
+                                color: const Color(0xFFf2cfd4),
+                                borderRadius: new BorderRadius.circular(3),
+                              ),
+                              child: Icon(
+                                Icons.refresh,
+                                color: Colors.white,
+                                size: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: size.width*0.03),
+                        Container(
+                          width: size.width * 0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Your Interests...',
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 18),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios_sharp,
+                                size: 15,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                    SizedBox(width: 225),
-                    Icon(
-                      Icons.arrow_forward_ios_sharp,
-                      size: 15,
-                      color: Colors.grey,
+                    SizedBox(height: size.height*0.015),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: size.width * 0.055,
+                              height: size.height * 0.03,
+                              decoration: new BoxDecoration(
+                                color: const Color(0xFFf2cfd4),
+                                borderRadius: new BorderRadius.circular(3),
+                              ),
+                              child: Icon(
+                                Icons.refresh,
+                                color: Colors.white,
+                                size: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: size.width*0.03),
+                        Container(
+                          width: size.width * 0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'More info...',
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 18),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios_sharp,
+                                size: 15,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.add,
-                      color: const Color(0xFFf2cfd4),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      'Your Interests...',
-                      style: TextStyle(color: Colors.grey, fontSize: 18),
-                    ),
-                    SizedBox(width: 200),
-                    Icon(
-                      Icons.arrow_forward_ios_sharp,
-                      size: 15,
-                      color: Colors.grey,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.add,
-                      color: const Color(0xFFf2cfd4),
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      'More info...',
-                      style: TextStyle(color: Colors.grey, fontSize: 18),
-                    ),
-                    SizedBox(width: 230),
-                    Icon(
-                      Icons.arrow_forward_ios_sharp,
-                      size: 15,
-                      color: Colors.grey,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 30),
+                SizedBox(height: size.height*0.03),
                 Padding(
                   padding: const EdgeInsets.only(left: 18),
                   child: SizedBox(
                     width: size.width * 0.8,
-                    height: 50,
+                    height: size.height * 0.07,
                     child: FlatButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => DeliveryOption(),
-                          //   ),
-                          // );
+                          openAlertBox();
                         },
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),

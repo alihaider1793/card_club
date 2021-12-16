@@ -20,6 +20,7 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    var size=MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -29,7 +30,7 @@ class _ProfileState extends State<Profile> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 30),
+                 SizedBox(height: size.height*0.05),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -45,8 +46,8 @@ class _ProfileState extends State<Profile> {
                             borderRadius: BorderRadius.circular(10),
                             color: const Color(0xFFf2cfd4),
                           ),
-                          height: 50,
-                          width: 50,
+                          height: size.height*0.065,
+                          width: size.width*0.12,
                           child: Icon(
                             Icons.more_horiz,
                             size: 40,
@@ -54,15 +55,15 @@ class _ProfileState extends State<Profile> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: size.width*0.02,
                         ),
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: const Color(0xFFf2cfd4),
                           ),
-                          height: 50,
-                          width: 50,
+                          height: size.height*0.065,
+                          width: size.width*0.12,
                           child: Icon(
                             Icons.mail_outline_rounded,
                             size: 40,
@@ -73,7 +74,7 @@ class _ProfileState extends State<Profile> {
                     )
                   ],
                 ),
-                const SizedBox(height: 80),
+                SizedBox(height: size.height*0.1),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,56 +89,60 @@ class _ProfileState extends State<Profile> {
                             color: const Color(0xFFf2cfd4),
                           ),
                         ),
-                        child: SizedBox(
-                          height: 50,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Container(
-                                color: const Color(0xFFf2cfd4),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: const Color(0xFFf2cfd4),
-                                          ),
-                                          height: 70,
-                                          width: 70,
-                                          child: Icon(
-                                            Icons.upload,
-                                            size: 40,
-                                            color: Colors.black,
-                                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Container(
+                              color: const Color(0xFFf2cfd4),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: const Color(0xFFf2cfd4),
                                         ),
-                                      ],
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text('Upload'),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                                        height: size.height*0.06,
+                                        width: size.width*0.1,
+                                        child: Icon(
+                                          Icons.upload,
+                                          size: 35,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ],
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                  ),
+                                  SizedBox(
+                                    height: size.height*0.03,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text('UPLOAD',
+                                      style: TextStyle(
+                                        fontSize: 22,
+                                        letterSpacing: 2,
+                                      ),),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
                         ),
                         color: const Color(0xFFf2cfd4),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 50),
+                SizedBox(height: size.height*0.07),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -164,13 +169,13 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 50),
+                SizedBox(height: size.height*0.07),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2 - 30,
-                      height: 70,
+              height: size.height*0.1,
                       child: FlatButton(
                           onPressed: () {Navigator.push(
                             context,
@@ -190,11 +195,11 @@ class _ProfileState extends State<Profile> {
                           )),
                     ),
                     SizedBox(
-                      width: 5,
+                      width: size.width*0.02,
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2 - 30,
-                      height: 70,
+                      height: size.height*0.1,
                       child: FlatButton(
                           onPressed: () {},
                           shape: RoundedRectangleBorder(

@@ -27,6 +27,7 @@ class _ImagePageState extends State<ImagePage> {
 
   File? pickedImage;
 
+
   //bottom sheet for choosing option
   void imagePickerOption() {
     Get.bottomSheet(
@@ -52,8 +53,8 @@ class _ImagePageState extends State<ImagePage> {
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: MediaQuery.of(context).size.height*0.01,
                   ),
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(primary: Colors.white),
@@ -82,8 +83,8 @@ class _ImagePageState extends State<ImagePage> {
                       style: TextStyle(color: Color(0xFFf2cfd4)),
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                   SizedBox(
+                    height: MediaQuery.of(context).size.height*0.01,
                   ),
                   Padding(
                     padding:
@@ -165,7 +166,7 @@ class _ImagePageState extends State<ImagePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 30),
+                SizedBox(height: size.height*0.04),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                   child: Row(
@@ -207,7 +208,7 @@ class _ImagePageState extends State<ImagePage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: size.height*0.05),
                 Stack(
                   children: [
                     SharedCard(),
@@ -224,7 +225,7 @@ class _ImagePageState extends State<ImagePage> {
                               },
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(100, 6.5, 6, 0),
+                                    const EdgeInsets.fromLTRB(95, 15, 0, 0),
                                 child: Container(
                                     decoration: const BoxDecoration(
                                       color: Colors.white,
@@ -235,8 +236,6 @@ class _ImagePageState extends State<ImagePage> {
                                         0.25,
                                     child: Image.file(
                                       pickedImage!,
-                                      width: 20,
-                                      height: 20,
                                       fit: BoxFit.cover,
                                     )),
                               ),

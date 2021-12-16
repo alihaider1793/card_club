@@ -65,7 +65,7 @@ class _PaintPageState extends State<PaintPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 30),
+                SizedBox(height: size.height*0.04),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                   child: Row(
@@ -105,56 +105,53 @@ class _PaintPageState extends State<PaintPage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: size.height*0.05 ),
                 SharedCard(),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: size.height*0.03,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          color: Colors.white,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                              icon: Icon(
-                                Icons.color_lens,
-                                color: PaintPage.selected!,
-                              ),
-                              iconSize: 28,
-                              onPressed: () {
-                                selectColor();
-                              },
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            icon: Icon(
+                              Icons.color_lens,
+                              color: PaintPage.selected!,
                             ),
-                            Slider(
-                                min: 1,
-                                max: 7,
-                                activeColor: PaintPage.selected,
-                                value: PaintPage.stroke!,
-                                onChanged: (val) {
-                                  setState(() {
-                                    PaintPage.stroke = val;
-                                  });
-                                }),
-                            IconButton(
-                              icon: const Icon(Icons.layers_clear),
-                              iconSize: 28,
-                              onPressed: () {
+                            iconSize: 28,
+                            onPressed: () {
+                              selectColor();
+                            },
+                          ),
+                          Slider(
+                              min: 1,
+                              max: 7,
+                              activeColor: PaintPage.selected,
+                              value: PaintPage.stroke!,
+                              onChanged: (val) {
                                 setState(() {
-                                  PaintPage.points.clear();
+                                  PaintPage.stroke = val;
                                 });
-                              },
-                            )
-                          ],
-                        ),
+                              }),
+                          IconButton(
+                            icon: const Icon(Icons.layers_clear),
+                            iconSize: 28,
+                            onPressed: () {
+                              setState(() {
+                                PaintPage.points.clear();
+                              });
+                            },
+                          )
+                        ],
                       ),
                     ),
                   ],

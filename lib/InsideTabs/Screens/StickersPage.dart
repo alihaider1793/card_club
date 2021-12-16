@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stick_it/stick_it.dart';
-
 import '../sharedstates/sharedcard.dart';
 import 'TextPage.dart';
+
 class StickersPage extends StatefulWidget {
   const StickersPage({Key? key}) : super(key: key);
 
@@ -36,7 +36,7 @@ class _StickersPageState extends State<StickersPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 30),
+                      SizedBox(height: size.height * 0.04),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                         child: Row(
@@ -52,7 +52,8 @@ class _StickersPageState extends State<StickersPage> {
                               },
                               child: const Text(
                                 'Back',
-                                style: TextStyle(color: Colors.white, fontSize: 16),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
                               ),
                               color: const Color(0xFFf2cfd4),
                             ),
@@ -61,24 +62,26 @@ class _StickersPageState extends State<StickersPage> {
                               shape: ContinuousRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              onPressed: () {Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => TextPage(),
-                                ),
-                              );},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => TextPage(),
+                                  ),
+                                );
+                              },
                               child: const Text(
                                 'Next',
-                                style: TextStyle(color: Colors.white, fontSize: 16),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
                               ),
                               color: const Color(0xFFf2cfd4),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(height: 40),
+                      SizedBox(height: size.height * 0.05),
                       SharedCard(),
-
                     ],
                   ),
                 ),

@@ -28,7 +28,7 @@ class _GiftsState extends State<Gifts> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 80),
+                SizedBox(height: size.height*0.1),
                 Text(
                   'Products',
                   style: TextStyle(
@@ -36,7 +36,7 @@ class _GiftsState extends State<Gifts> {
                     fontSize: 26,
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: size.height*0.02),
                 Container(
                   width: size.width * 1,
                   height: size.height * 0.4,
@@ -102,7 +102,7 @@ class _GiftsState extends State<Gifts> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: size.height*0.02),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -122,7 +122,7 @@ class _GiftsState extends State<Gifts> {
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: size.height*0.03),
                 Container(
                   color: Colors.transparent,
                   width: size.width * 0.9,
@@ -150,7 +150,7 @@ class _GiftsState extends State<Gifts> {
                                 ),
                               ),
                               SizedBox(
-                                width: 10,
+                                width: size.width*0.04,
                               ),
                               Text(
                                 'Customizable digital eGift \nCards',

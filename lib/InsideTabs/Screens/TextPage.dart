@@ -38,7 +38,7 @@ class _TextPageState extends State<TextPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 30),
+                      SizedBox(height: size.height*0.04),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                         child: Row(
@@ -78,11 +78,8 @@ class _TextPageState extends State<TextPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 40),
+                      SizedBox(height: size.height*0.05),
                       SharedCard(),
-                      const SizedBox(
-                        height: 10,
-                      ),
 
                     ],
                   ),

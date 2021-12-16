@@ -5,6 +5,7 @@ import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
@@ -92,7 +93,7 @@ class _BirthdayState extends State<Birthday> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: size.height*0.02735),
                       Container(
                         width: size.width * 1,
                         height: size.height * 0.16,
@@ -114,7 +115,7 @@ class _BirthdayState extends State<Birthday> {
                                   initialSelectedDate: DateTime(2021, 01, 01),
                                   todayHighlightColor: Colors.white,
                                   initialDisplayDate: DateTime(2021, 01, 01),
-                                  selectionColor: Colors.blue,
+                                  selectionColor: Colors.pink[100],
                                   view: DateRangePickerView.month,
                                   onSelectionChanged: selectionChanged,
                                   monthViewSettings:
@@ -141,7 +142,7 @@ class _BirthdayState extends State<Birthday> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: size.height*0.00688),
                       Padding(
                         padding: const EdgeInsets.only(left: 165, right: 165),
                         child: ClipRRect(
@@ -153,7 +154,7 @@ class _BirthdayState extends State<Birthday> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: size.height*0.01365),
                     ],
                   ),
                 ),
@@ -180,10 +181,10 @@ class _BirthdayState extends State<Birthday> {
                               style: TextStyle(
                                   color: const Color(0xFFf2cfd4), fontSize: 22),
                             ),
-                            SizedBox(width: 170),
+                            SizedBox(width: size.width*0.42),
                             Container(
-                              width: 30,
-                              height: 30,
+                              width: size.width*0.073,
+                              height: size.height*0.042,
                               decoration: new BoxDecoration(
                                 color: const Color(0xFFf2cfd4),
                                 borderRadius: new BorderRadius.circular(5),
@@ -193,7 +194,7 @@ class _BirthdayState extends State<Birthday> {
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: 10),
+                            SizedBox(width: size.width*0.02),
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(
@@ -204,8 +205,8 @@ class _BirthdayState extends State<Birthday> {
                                 );
                               },
                               child: Container(
-                                width: 30,
-                                height: 30,
+                                width: size.width*0.073,
+                                height: size.height*0.042,
                                 decoration: new BoxDecoration(
                                   color: const Color(0xFFf2cfd4),
                                   borderRadius: new BorderRadius.circular(5),
@@ -218,7 +219,7 @@ class _BirthdayState extends State<Birthday> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 30),
+                        SizedBox(height: size.height*0.04),
                         SizedBox(
                           width: size.width * 1,
                           height: size.height * 0.43,
@@ -238,7 +239,7 @@ class _BirthdayState extends State<Birthday> {
                                           style: const TextStyle(
                                               fontSize: 20, color: Colors.grey),
                                         ),
-                                        SizedBox(width: 15),
+                                        SizedBox(width: size.width*0.035),
                                         SizedBox(
                                           width: size.width * 0.5819,
                                           height: size.height * 0.25,
@@ -284,7 +285,7 @@ class _BirthdayState extends State<Birthday> {
                                                     style:
                                                         TextStyle(fontSize: 16),
                                                   ),
-                                                  SizedBox(height: 40),
+                                                  SizedBox(height: size.height*0.06),
                                                   Text(
                                                     "Add more recipients:",
                                                     style:
@@ -365,11 +366,11 @@ class _BirthdayState extends State<Birthday> {
                                         )
                                       ],
                                     ),
-                                    SizedBox(height: 25),
+                                    SizedBox(height: size.height*0.045),
                                     DottedLine(
                                       dashColor: Colors.grey,
                                     ),
-                                    SizedBox(height: 25),
+                                    SizedBox(height: size.height*0.045),
                                   ],
                                 );
                               }),
@@ -383,23 +384,19 @@ class _BirthdayState extends State<Birthday> {
                   height: size.height * 0.0889,
                   color: Colors.white,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(50, 8.0, 50, 8),
-                    child: SizedBox(
-                      width: 288,
-                      height: 50,
-                      child: FlatButton(
-                        onPressed: () {},
-                        shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: const Text(
-                          'Next',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                        color: const Color(0xFFf2cfd4),
+                    padding: const EdgeInsets.fromLTRB(100, 8.0, 100, 8),
+                    child: FlatButton(
+                      onPressed: () {},
+                      shape: ContinuousRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
                       ),
+                      child: const Text(
+                        'Next',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                      color: const Color(0xFFf2cfd4),
                     ),
                   ),
                 )

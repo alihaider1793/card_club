@@ -50,6 +50,7 @@ class _SharedCardState extends State<SharedCard> {
   }
   @override
   Widget build(BuildContext context) {
+    var size=MediaQuery.of(context).size;
     return Stack(
       children: [
         Column(
@@ -70,82 +71,76 @@ class _SharedCardState extends State<SharedCard> {
                         color: const Color(0xFFf2cfd4),
                       ),
                     ),
-                    child: SizedBox(
-                      height: 50,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Container(
-                            color: const Color(0xFFf2cfd4),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Container(
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                  ),
-                                  width: MediaQuery.of(context).size.width *
-                                      0.7,
-                                  height:
-                                  MediaQuery.of(context).size.height *
-                                      0.5 -
-                                      10,
-                                  child: GestureDetector(
-                                    onPanDown: (details) {
-                                      setState(() {
-                                        PaintPage.points.add(DrawingArea(
-                                            point: details.localPosition,
-                                            areaPaint: Paint()
-                                              ..strokeCap = StrokeCap.round
-                                              ..isAntiAlias = true
-                                              ..color = PaintPage.selected!
-                                              ..strokeWidth = PaintPage.stroke!));
-                                      });
-                                    },
-                                    onPanUpdate: (details) {
-                                      setState(() {
-                                        PaintPage.points.add(DrawingArea(
-                                            point: details.localPosition,
-                                            areaPaint: Paint()
-                                              ..strokeCap = StrokeCap.round
-                                              ..isAntiAlias = true
-                                              ..color = PaintPage.selected!
-                                              ..strokeWidth = PaintPage.stroke!));
-                                      });
-                                    },
-                                    onPanEnd: (details) {
-                                      setState(() {
-                                        PaintPage.points.add(null);
-                                      });
-                                    },
-                                    child: ClipRRect(
-                                      child: CustomPaint(
-                                        painter:
-                                        MyCustomPainter(points: PaintPage.points),
-                                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Container(
+                          color: const Color(0xFFf2cfd4),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Container(
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                ),
+                                width: MediaQuery.of(context).size.width *
+                                    0.7,
+                                height:
+                                MediaQuery.of(context).size.height *
+                                    0.5 -
+                                    10,
+                                child: GestureDetector(
+                                  onPanDown: (details) {
+                                    setState(() {
+                                      PaintPage.points.add(DrawingArea(
+                                          point: details.localPosition,
+                                          areaPaint: Paint()
+                                            ..strokeCap = StrokeCap.round
+                                            ..isAntiAlias = true
+                                            ..color = PaintPage.selected!
+                                            ..strokeWidth = PaintPage.stroke!));
+                                    });
+                                  },
+                                  onPanUpdate: (details) {
+                                    setState(() {
+                                      PaintPage.points.add(DrawingArea(
+                                          point: details.localPosition,
+                                          areaPaint: Paint()
+                                            ..strokeCap = StrokeCap.round
+                                            ..isAntiAlias = true
+                                            ..color = PaintPage.selected!
+                                            ..strokeWidth = PaintPage.stroke!));
+                                    });
+                                  },
+                                  onPanEnd: (details) {
+                                    setState(() {
+                                      PaintPage.points.add(null);
+                                    });
+                                  },
+                                  child: ClipRRect(
+                                    child: CustomPaint(
+                                      painter:
+                                      MyCustomPainter(points: PaintPage.points),
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                     color: const Color(0xFFf2cfd4),
                   ),
                 ),
               ],
             ),
-            const SizedBox(
-              height: 0,
-            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(300, 5, 30, 0),
               child: SizedBox(
-                height: 30,
-                width: 100,
+                height: size.height*0.045,
+                width: size.width*0.2,
                 child: Card(
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
@@ -155,13 +150,13 @@ class _SharedCardState extends State<SharedCard> {
                   color: const Color(0xFFf0cede),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
+                    children:  [
                       CircleAvatar(
                         backgroundColor: Colors.white,
                         radius: 8,
                       ),
                       SizedBox(
-                        width: 5,
+                        width: size.width*0.001,
                       ),
                       CircleAvatar(
                         backgroundColor: Color(0xFFffebf2),
