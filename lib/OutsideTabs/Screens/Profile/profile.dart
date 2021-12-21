@@ -1,8 +1,8 @@
-import 'package:card_club/OutsideTabs/Screens/Interests.dart';
+import 'package:card_club/OutsideTabs/Screens/Profile/Interests.dart';
 import 'package:card_club/pages/delivery_option.dart';
 import 'package:flutter/material.dart';
 
-import 'Profile/Inbox.dart';
+import 'Inbox.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);

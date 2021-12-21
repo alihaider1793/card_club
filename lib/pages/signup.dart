@@ -55,7 +55,7 @@ class _SignupState extends State<Signup> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          color: const Color(0xFFf2cfee),
+          color: const Color(0xFFf2cfd4),
           child: Column(
             children: <Widget>[
               SizedBox(

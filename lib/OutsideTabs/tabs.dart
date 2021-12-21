@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'Screens/Gifts.dart';
 import 'Screens/Reminders/Reminders.dart';
 import 'Screens/Cards.dart';
-import 'Screens/profile.dart';
+import 'Screens/Profile/profile.dart';
 
 class TabBarController extends StatefulWidget {
   const TabBarController({Key? key}) : super(key: key);
