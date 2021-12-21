@@ -2,6 +2,8 @@ import 'package:card_club/OutsideTabs/Screens/Interests.dart';
 import 'package:card_club/pages/delivery_option.dart';
 import 'package:flutter/material.dart';
 
+import 'Profile/Inbox.dart';
+
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -57,17 +59,27 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: size.width*0.02,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color(0xFFf2cfd4),
-                          ),
-                          height: size.height*0.065,
-                          width: size.width*0.12,
-                          child: Icon(
-                            Icons.mail_outline_rounded,
-                            size: 40,
-                            color: Colors.black,
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Inbox(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color(0xFFf2cfd4),
+                            ),
+                            height: size.height*0.065,
+                            width: size.width*0.12,
+                            child: Icon(
+                              Icons.mail_outline_rounded,
+                              size: 40,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ],
