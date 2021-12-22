@@ -1,10 +1,6 @@
+import 'package:card_club/OutsideTabs/Screens/Gifts/Products.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:stick_it/stick_it.dart';
-import 'dart:ui' as ui;
-import '../../../InsideTabs/Paint/CustomPaint.dart';
-import '../../../InsideTabs/Paint/Draawing.dart';
-import '../../InsideTabs/sharedstates/TextDisplay.dart';
+
 
 class Gifts extends StatefulWidget {
   const Gifts({Key? key}) : super(key: key);
@@ -138,7 +134,14 @@ class _GiftsState extends State<Gifts> {
                       50,
                       (index) {
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProductPage(),
+                              ),
+                            );
+                          },
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

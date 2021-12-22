@@ -1,8 +1,8 @@
-import 'package:card_club/OutsideTabs/Screens/Address.dart';
+import 'package:card_club/OutsideTabs/Screens/Address/Address.dart';
 import 'package:card_club/OutsideTabs/Screens/Reminders/LandingReminder.dart';
 import 'package:card_club/OutsideTabs/Screens/date_time.dart';
 import 'package:flutter/material.dart';
-import 'Screens/Gifts.dart';
+import 'Screens/Gifts/Gifts.dart';
 import 'Screens/Reminders/Reminders.dart';
 import 'Screens/Cards.dart';
 import 'Screens/Profile/profile.dart';

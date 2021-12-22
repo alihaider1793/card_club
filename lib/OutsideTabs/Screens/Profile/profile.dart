@@ -2,6 +2,7 @@ import 'package:card_club/OutsideTabs/Screens/Profile/Interests.dart';
 import 'package:card_club/pages/delivery_option.dart';
 import 'package:flutter/material.dart';
 
+import 'Drawer.dart';
 import 'Inbox.dart';
 
 class Profile extends StatefulWidget {
@@ -22,8 +23,10 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    var size=MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: ClickDrawer(),
+      //resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
@@ -32,14 +35,18 @@ class _ProfileState extends State<Profile> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 SizedBox(height: size.height*0.05),
+                SizedBox(height: size.height * 0.05),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.menu,
-                      color: Colors.black,
-                      size: 40,
+                    GestureDetector(
+                      onTap: () {
+                      },
+                      child: Icon(
+                        Icons.menu,
+                        color: Colors.black,
+                        size: 40,
+                      ),
                     ),
                     Row(
                       children: [
@@ -48,8 +55,8 @@ class _ProfileState extends State<Profile> {
                             borderRadius: BorderRadius.circular(10),
                             color: const Color(0xFFf2cfd4),
                           ),
-                          height: size.height*0.065,
-                          width: size.width*0.12,
+                          height: size.height * 0.065,
+                          width: size.width * 0.12,
                           child: Icon(
                             Icons.more_horiz,
                             size: 40,
@@ -57,10 +64,10 @@ class _ProfileState extends State<Profile> {
                           ),
                         ),
                         SizedBox(
-                          width: size.width*0.02,
+                          width: size.width * 0.02,
                         ),
                         GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -73,8 +80,8 @@ class _ProfileState extends State<Profile> {
                               borderRadius: BorderRadius.circular(10),
                               color: const Color(0xFFf2cfd4),
                             ),
-                            height: size.height*0.065,
-                            width: size.width*0.12,
+                            height: size.height * 0.065,
+                            width: size.width * 0.12,
                             child: Icon(
                               Icons.mail_outline_rounded,
                               size: 40,
@@ -86,7 +93,7 @@ class _ProfileState extends State<Profile> {
                     )
                   ],
                 ),
-                SizedBox(height: size.height*0.1),
+                SizedBox(height: size.height * 0.1),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,8 +125,8 @@ class _ProfileState extends State<Profile> {
                                               BorderRadius.circular(10),
                                           color: const Color(0xFFf2cfd4),
                                         ),
-                                        height: size.height*0.06,
-                                        width: size.width*0.1,
+                                        height: size.height * 0.06,
+                                        width: size.width * 0.1,
                                         child: Icon(
                                           Icons.upload,
                                           size: 35,
@@ -127,21 +134,22 @@ class _ProfileState extends State<Profile> {
                                         ),
                                       ),
                                     ],
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                   ),
                                   SizedBox(
-                                    height: size.height*0.03,
+                                    height: size.height * 0.03,
                                   ),
                                   Row(
                                     children: [
-                                      Text('UPLOAD',
-                                      style: TextStyle(
-                                        fontSize: 22,
-                                        letterSpacing: 2,
-                                      ),),
+                                      Text(
+                                        'UPLOAD',
+                                        style: TextStyle(
+                                          fontSize: 22,
+                                          letterSpacing: 2,
+                                        ),
+                                      ),
                                     ],
                                   )
                                 ],
@@ -154,7 +162,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 ),
-                SizedBox(height: size.height*0.07),
+                SizedBox(height: size.height * 0.07),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -181,20 +189,22 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 ),
-                SizedBox(height: size.height*0.07),
+                SizedBox(height: size.height * 0.07),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2 - 30,
-              height: size.height*0.1,
+                      height: size.height * 0.1,
                       child: FlatButton(
-                          onPressed: () {Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Interests(),
-                            ),
-                          );},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Interests(),
+                              ),
+                            );
+                          },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -207,11 +217,11 @@ class _ProfileState extends State<Profile> {
                           )),
                     ),
                     SizedBox(
-                      width: size.width*0.02,
+                      width: size.width * 0.02,
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2 - 30,
-                      height: size.height*0.1,
+                      height: size.height * 0.1,
                       child: FlatButton(
                           onPressed: () {},
                           shape: RoundedRectangleBorder(
