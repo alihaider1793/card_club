@@ -153,11 +153,11 @@ class _GiftsState extends State<Gifts> {
                                 ),
                               ),
                               SizedBox(
-                                width: size.width*0.04,
+                                width: size.width*0.02,
                               ),
                               Text(
                                 'Customizable digital eGift \nCards',
-                                style: TextStyle(fontSize: 18),
+                                style: TextStyle(fontSize: 17),
                               ),
                             ],
                           ),

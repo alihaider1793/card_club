@@ -35,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    var size= MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         color: const Color(0xFFf2cfd4),
@@ -88,36 +89,40 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding:
                         const EdgeInsets.only(left: 30, right: 30, top: 30),
                     child: Container(
-                      width: 200,
+                      width: size.width*0.5,
                       // ignore: deprecated_member_use
-                      child: RaisedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Signup(),
-                            ),
-                          );
-                        },
-                        color: Colors.white,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 20, bottom: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                "Let's Start",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black,
-                                ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15.0),
+                        child: FlatButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Signup(),
                               ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.black,
-                              )
-                            ],
+                            );
+                          },
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 20, bottom: 20,left: 7),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  "Let's Start",
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    //fontWeight: FontWeight.w700,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SizedBox(width: size.width*0.03),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

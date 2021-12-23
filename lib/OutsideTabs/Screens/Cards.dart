@@ -44,13 +44,13 @@ class _EditCardState extends State<EditCard> {
                           ),
                         ),
                         SizedBox(
-                          width: size.width*0.05,
+                          width: size.width*0.03,
                         ),
                         Text(
                           'Hi, Erika',
-                          style: TextStyle(color: Colors.white, fontSize: 30),
+                          style: TextStyle(color: Colors.white, fontSize: 28),
                         ),
-                        SizedBox(width: size.width*0.25),
+                        SizedBox(width: size.width*0.2),
                         Icon(
                           Icons.shopping_cart_outlined,
                           color: Colors.white,

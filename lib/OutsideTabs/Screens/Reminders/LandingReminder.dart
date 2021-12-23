@@ -50,7 +50,7 @@ class _BirthdayState extends State<Birthday> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
-                            width: size.width * 0.224,
+                            width: size.width * 0.25,
                             height: size.height * 0.055,
                             child: FlatButton.icon(
                               color: Colors.white,
@@ -181,7 +181,7 @@ class _BirthdayState extends State<Birthday> {
                               style: TextStyle(
                                   color: const Color(0xFFf2cfd4), fontSize: 22),
                             ),
-                            SizedBox(width: size.width*0.42),
+                            SizedBox(width: size.width*0.35),
                             Container(
                               width: size.width*0.073,
                               height: size.height*0.042,
@@ -241,7 +241,7 @@ class _BirthdayState extends State<Birthday> {
                                         ),
                                         SizedBox(width: size.width*0.035),
                                         SizedBox(
-                                          width: size.width * 0.5819,
+                                          width: size.width * 0.5,
                                           height: size.height * 0.25,
                                           child: Card(
                                             shape: RoundedRectangleBorder(

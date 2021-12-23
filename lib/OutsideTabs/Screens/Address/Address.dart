@@ -200,7 +200,7 @@ class _AddressState extends State<Address> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(right: 40, top: 580),
           child: SizedBox(
-            width: size.width * 0.15,
+            width: size.width * 0.2,
             height: size.height * 0.15,
             child: FloatingActionButton(
               onPressed: () {

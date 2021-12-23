@@ -100,7 +100,7 @@ class _InterestsState extends State<Interests> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: size.width * 0.225,
+                  width: size.width * 0.25,
                   height: size.height * 0.06,
                   child: FlatButton.icon(
                     icon: Icon(

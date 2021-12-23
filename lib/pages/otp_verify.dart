@@ -9,157 +9,146 @@ class OTPVerify extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          color: (Colors.white),
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: ((MediaQuery.of(context).size.height * 10) / 100),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "OTP sent!",
-                      style: TextStyle(
-                        fontSize: 33,
-                        fontWeight: FontWeight.bold,
+      resizeToAvoidBottomInset: false,
+      body: GestureDetector(
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+          }
+        },
+        child: SingleChildScrollView(
+          child: Container(
+            width: size.width * 1,
+            height: size.height * 1,
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: size.height * 0.15,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "OTP sent!",
+                        style: TextStyle(
+                          fontSize: 33,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                      child: Text(
-                        "Enter the 4-digit code we sent you at XXXXXXXXXX!",
+                      SizedBox(height: size.height * 0.035),
+                      Text(
+                        "Enter the 4-digit code we sent you at XXXXXXXXXX",
                         style: TextStyle(
                           fontSize: 15,
                         ),
                         textAlign: TextAlign.center,
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 50, left: 60.0, right: 60.0),
-                      child: PinCodeTextField(
-                        appContext: context,
-                        pastedTextStyle: TextStyle(
-                          color: Colors.green.shade600,
-                          fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 50, left: 60.0, right: 60.0),
+                        child: PinCodeTextField(
+                          appContext: context,
+                          pastedTextStyle: TextStyle(
+                            color: Colors.green.shade600,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          length: 4,
+                          obscureText: false,
+                          pinTheme: PinTheme(
+                              shape: PinCodeFieldShape.underline,
+                              activeFillColor: Colors.white,
+                              selectedColor: Colors.white,
+                              activeColor: Colors.white,
+                              inactiveFillColor: Colors.white,
+                              selectedFillColor: Colors.white,
+                              inactiveColor: Colors.grey),
+                          cursorColor: Colors.black,
+                          animationDuration: Duration(milliseconds: 300),
+                          enableActiveFill: true,
+                          errorAnimationController: null,
+                          controller: null,
+                          keyboardType: TextInputType.phone,
+                          onCompleted: (v) {
+                            print("Completed");
+                          },
+                          onChanged: (value) {
+                            print(value);
+                          },
+                          beforeTextPaste: (text) {
+                            print("Allowing to paste $text");
+                            //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                            //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                            return true;
+                          },
                         ),
-                        length: 4,
-                        obscureText: false,
-                        pinTheme: PinTheme(
-                            shape: PinCodeFieldShape.underline,
-                            activeFillColor: Colors.white,
-                            selectedColor: Colors.white,
-                            activeColor: Colors.white,
-                            inactiveFillColor: Colors.white,
-                            selectedFillColor: Colors.white,
-                            inactiveColor: Colors.grey),
-                        cursorColor: Colors.black,
-                        animationDuration: Duration(milliseconds: 300),
-                        enableActiveFill: true,
-                        errorAnimationController: null,
-                        controller: null,
-                        keyboardType: TextInputType.number,
-                        onCompleted: (v) {
-                          print("Completed");
-                        },
-                        onChanged: (value) {
-                          print(value);
-                        },
-                        beforeTextPaste: (text) {
-                          print("Allowing to paste $text");
-                          //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                          //but you can show anything you want here, like your pop up saying wrong paste format or etc
-                          return true;
-                        },
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 30.0, left: 20, right: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ElevatedButton(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 20, bottom: 20),
-                              child: Container(
-                                child: Text(
-                                  "Resend OTP",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 60.0, left: 30, right: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: size.width * 0.35,
+                              height: size.height * 0.1,
+                              child: Opacity(
+                                opacity: 0.6,
+                                child: FlatButton(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  color: const Color(0xFFF2CFD4),
+                                  onPressed: () => {},
+                                  child: Text(
+                                    "Resend OTP",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 16),
                                   ),
                                 ),
                               ),
                             ),
-                            style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color(0xFFfaedef),
-                              ),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                              ),
-                            ),
-                            onPressed: () => {},
-                          ),
-                          ElevatedButton(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 20, bottom: 20, left: 10, right: 10),
-                              child: Container(
+                            Container(
+                              width: size.width * 0.45,
+                              height: size.height * 0.1,
+                              child: FlatButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                color: const Color(0xFFF2CFD4),
+                                onPressed: () {
+                                  FocusScopeNode currentFocus =
+                                      FocusScope.of(context);
+                                  if (!currentFocus.hasPrimaryFocus) {
+                                    currentFocus.unfocus();
+                                  }
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          EnableNotification(),
+                                    ),
+                                  );
+                                },
                                 child: Text(
                                   "Confirm",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                  ),
+                                  style: TextStyle(fontSize: 16),
                                 ),
                               ),
                             ),
-                            style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color(0xFFf2cfd4),
-                              ),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                              ),
-                            ),
-                            onPressed: () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => EnableNotification(),
-                                ),
-                              )
-                            },
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

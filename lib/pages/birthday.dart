@@ -1,6 +1,5 @@
 import 'package:card_club/pages/enable_notification.dart';
 import 'package:card_club/pages/signin.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -42,58 +41,66 @@ class _BirthdayState extends State<Birthday> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            width: size.width * 1,
+            height: size.height * 1,
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    FlatButton(
-                      shape: ContinuousRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    SizedBox(
+                      width: size.width * 0.2,
+                      height: size.height * 0.042,
+                      child: FlatButton(
+                        shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(17),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Signin(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'Skip',
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                        color: const Color(0xFFf2cfd4),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EnableNotification(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        'Skip',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                      color: const Color(0xFFf2cfd4),
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: size.height * 0.02),
                 const Text(
                   'Birthday!',
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: size.height * 0.015),
                 const Text(
                   'Help friends celebrate your birthday when its \ntime to celebrate... you!',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 17,
                   ),
                 ),
-                const SizedBox(height: 15),
+                SizedBox(height: size.height * 0.02),
                 Card(
+                  elevation: 1,
                   shape: ContinuousRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    side: const BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(15),
+                    side: BorderSide(color: Colors.grey[300]!),
                   ),
                   child: Container(
-                    margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    margin: const EdgeInsets.fromLTRB(25, 10, 25, 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -105,110 +112,113 @@ class _BirthdayState extends State<Birthday> {
                         ),
                         const Icon(
                           Icons.date_range_outlined,
-                          size: 25,
+                          size: 30,
+                          color: Colors.grey,
                         ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 0),
                 Card(
+                  elevation: 1.5,
                   shape: ContinuousRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    side: const BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(15),
+                    side: BorderSide(color: Colors.grey[300]!),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 0, vertical: 5),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.arrow_back_ios_sharp,
-                              size: 15,
-                              color: const Color(0xFFf2cfd4),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {});
-                              },
-                              child: Card(
-                                child: Container(
-                                  margin: const EdgeInsets.fromLTRB(1, 1, 1, 1),
-                                  child: const Text(
-                                    '2018',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                ),
-                                color: Colors.grey[50],
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Card(
-                                child: Container(
-                                  margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
-                                  child: const Text(
-                                    '2019',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                ),
-                                color: Colors.grey[50],
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Card(
-                                child: Container(
-                                  margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
-                                  child: const Text(
-                                    '2020',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                ),
-                                color: Colors.grey[50],
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Card(
-                                child: Container(
-                                  margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
-                                  child: const Text(
-                                    '2021',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                ),
-                                color: const Color(0xFFf2cfd4),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Card(
-                                child: Container(
-                                  margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
-                                  child: const Text(
-                                    '2022',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                ),
-                                color: Colors.grey[50],
-                              ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios_sharp,
-                              size: 15,
-                              color: const Color(0xFFf2cfd4),
-                            ),
-                          ],
-                        ),
-                      ),
+                      SizedBox(height: size.height * 0.01),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.arrow_back_ios_sharp,
+                            size: 15,
+                            color: const Color(0xFFf2cfd4),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {});
+                            },
+                            child: Card(
+                              child: Container(
+                                margin: const EdgeInsets.fromLTRB(1, 1, 1, 1),
+                                child: const Text(
+                                  '2018',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                              color: Colors.grey[200],
+                              elevation: 0,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Card(
+                              child: Container(
+                                margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
+                                child: const Text(
+                                  '2019',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                              color: Colors.grey[200],
+                              elevation: 0,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Card(
+                              child: Container(
+                                margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
+                                child: const Text(
+                                  '2020',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                              color: Colors.grey[200],
+                              elevation: 0,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Card(
+                              child: Container(
+                                margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
+                                child: const Text(
+                                  '2021',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                              color: const Color(0xFFf2cfd4),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Card(
+                              child: Container(
+                                margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
+                                child: const Text(
+                                  '2022',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                              color: Colors.grey[200],
+                              elevation: 0,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios_sharp,
+                            size: 15,
+                            color: const Color(0xFFf2cfd4),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: size.height * 0.01),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           GestureDetector(
                             onTap: () {},
@@ -220,7 +230,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -233,7 +244,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -246,7 +258,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -259,7 +272,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -272,7 +286,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -285,7 +300,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                         ],
@@ -303,7 +319,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -316,7 +333,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -329,7 +347,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -342,7 +361,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
@@ -356,14 +376,12 @@ class _BirthdayState extends State<Birthday> {
                                 ),
                               ),
                               color: const Color(0xFFf2cfd4),
+                              elevation: 0,
                             ),
                           ),
                           GestureDetector(
                             onTap: () {
-                              setState(() {
-                                initialSelectedDate:
-                                DateTime.december;
-                              });
+                              setState(() {});
                             },
                             child: Card(
                               child: Container(
@@ -373,7 +391,8 @@ class _BirthdayState extends State<Birthday> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
-                              color: Colors.grey[50],
+                              color: Colors.grey[200],
+                              elevation: 0,
                             ),
                           ),
                         ],
@@ -398,6 +417,7 @@ class _BirthdayState extends State<Birthday> {
                           textAlign: TextAlign.center,
                           textStyle: TextStyle(
                             color: const Color(0xFFf2cfd4),
+                            fontSize: 23,
                           ),
                         ),
                         monthCellStyle: const DateRangePickerMonthCellStyle(),
@@ -405,37 +425,29 @@ class _BirthdayState extends State<Birthday> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 288,
-                      height: 50,
-                      child: FlatButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Signin(),
-                            ),
-                          );
-                        },
-                        shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
+                SizedBox(height: size.height * 0.02),
+                Container(
+                  width: size.width * 0.9,
+                  height: size.height * 0.075,
+                  child: FlatButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                    color: const Color(0xFFF2CFD4),
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Signin(),
                         ),
-                        child: const Text(
-                          'Create Account',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                        color: const Color(0xFFf2cfd4),
-                      ),
+                      )
+                    },
+                    child: Text(
+                      "Create account",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
-                  ],
+                  ),
                 ),
-                const SizedBox(height: 10),
               ],
             ),
           ),

@@ -21,6 +21,8 @@ class _ProfileState extends State<Profile> {
     super.initState();
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey =  GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -41,6 +43,8 @@ class _ProfileState extends State<Profile> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                         _scaffoldKey.currentState!.openDrawer();
+                        print("Drawer clicked");
                       },
                       child: Icon(
                         Icons.menu,

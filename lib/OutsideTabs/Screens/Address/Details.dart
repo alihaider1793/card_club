@@ -32,7 +32,7 @@ class _DetailsState extends State<Details> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: size.width * 0.17,
+                      width: size.width * 0.2,
                       height: size.height * 0.05,
                       child: FlatButton(
                         shape: ContinuousRectangleBorder(
