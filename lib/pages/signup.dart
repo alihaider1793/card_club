@@ -68,13 +68,14 @@ class _SignupState extends State<Signup> {
                   child: Stack(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 410.0),
+                        padding: const EdgeInsets.only(top: 155.0),
                         child: Container(
-                          height: size.height * 0.37,
+                          height: size.height * 0.68,
                           width: MediaQuery.of(context).size.width,
                           color: Colors.white,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(
@@ -168,28 +169,29 @@ class _SignupState extends State<Signup> {
                                   );
                                 },
                                 child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 30, right: 30, top: 12),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "Already have an account? ",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                  padding: const EdgeInsets.only(
+                                      left: 30, right: 30, top: 12),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Already have an account? ",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        SizedBox(width: size.width * 0.005),
-                                        Text(
-                                          "Sign in",
-                                          style: TextStyle(
-                                            color: const Color(0xFFf2cfd4),
-                                          ),
+                                      ),
+                                      SizedBox(width: size.width * 0.005),
+                                      Text(
+                                        "Sign in",
+                                        style: TextStyle(
+                                          color: const Color(0xFFf2cfd4),
                                         ),
-                                      ],
-                                    )),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
+                              SizedBox(height: size.height * 0.02),
                             ],
                           ),
                         ),

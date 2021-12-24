@@ -67,14 +67,17 @@ class _SigninState extends State<Signin> {
                 SingleChildScrollView(
                   child: Stack(
                     children: [
+
+
                       Padding(
-                        padding: const EdgeInsets.only(top: 340.0),
+                        padding: const EdgeInsets.only(top: 75.0),
                         child: Container(
-                          height: size.height * 0.41,
+                          height: size.height * 0.72,
                           width: MediaQuery.of(context).size.width,
                           color: Colors.white,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(
@@ -94,7 +97,7 @@ class _SigninState extends State<Signin> {
                                         top: 18, bottom: 18),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Image(
                                           image: AssetImage(
@@ -130,7 +133,7 @@ class _SigninState extends State<Signin> {
                                         top: 18, bottom: 18, right: 20),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Image(
                                           image: AssetImage(
@@ -171,7 +174,7 @@ class _SigninState extends State<Signin> {
                                         left: 30, right: 30, top: 20),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           "Don't have an account? ",
@@ -187,8 +190,9 @@ class _SigninState extends State<Signin> {
                                           ),
                                         ),
                                       ],
-                                    )),
+                                    ),),
                               ),
+                              SizedBox(height: size.height * 0.03),
                             ],
                           ),
                         ),
@@ -210,7 +214,7 @@ class _SigninState extends State<Signin> {
                               spreadRadius: 3,
                               blurRadius: 10,
                               offset:
-                                  Offset(0, 2), // changes position of shadow
+                              Offset(0, 2), // changes position of shadow
                             ),
                           ],
                         ),
@@ -228,7 +232,7 @@ class _SigninState extends State<Signin> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                              const EdgeInsets.only(top: 8.0, bottom: 8.0),
                               child: Text(
                                 "Sign In your Account",
                                 style: TextStyle(
@@ -239,7 +243,7 @@ class _SigninState extends State<Signin> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.fromLTRB(30, 10, 30, 15),
+                              const EdgeInsets.fromLTRB(30, 10, 30, 15),
                               child: Column(
                                 children: [
                                   SizedBox(height: size.height * 0.03),
@@ -247,14 +251,14 @@ class _SigninState extends State<Signin> {
                                     decoration: InputDecoration(
                                       hintText: 'Enter your email',
                                       hintStyle:
-                                          TextStyle(color: Colors.grey[400]),
+                                      TextStyle(color: Colors.grey[400]),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                             color: Colors.grey[200]!),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
                                         borderSide:
-                                            BorderSide(color: Colors.green),
+                                        BorderSide(color: Colors.green),
                                       ),
                                     ),
                                   ),
@@ -263,14 +267,14 @@ class _SigninState extends State<Signin> {
                                     decoration: InputDecoration(
                                       hintText: 'Enter your password',
                                       hintStyle:
-                                          TextStyle(color: Colors.grey[400]),
+                                      TextStyle(color: Colors.grey[400]),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                             color: Colors.grey[200]!),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
                                         borderSide:
-                                            BorderSide(color: Colors.green),
+                                        BorderSide(color: Colors.green),
                                       ),
                                     ),
                                   ),
@@ -310,6 +314,7 @@ class _SigninState extends State<Signin> {
                           ],
                         ),
                       ),
+
                     ],
                   ),
                 )

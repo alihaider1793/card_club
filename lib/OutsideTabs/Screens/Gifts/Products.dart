@@ -40,39 +40,35 @@ class _ProductPageState extends State<ProductPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 15, top: 35),
-                        child: SizedBox(
-                          width: size.width * 0.2,
-                          height: size.height * 0.063,
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Card(
-                              elevation: 1,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                //    side:  const BorderSide(color: Colors.grey)
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                color: Colors.white,
                               ),
+                              width: size.width * 0.2,
+                              height: size.height * 0.055,
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(
                                     Icons.arrow_back_ios_sharp,
-                                    size: 20,
+                                    size: 15,
                                     color: const Color(0xFFF2CFD4),
                                   ),
                                   Text(
                                     'Back',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      fontSize: 23,
+                                      fontSize: 20,
                                       color: const Color(0xFFF2CFD4),
                                     ),
                                   ),
                                 ],
-                              ),
-                            ),
-                          ),
+                              )),
                         ),
                       ),
                     ],
@@ -96,7 +92,9 @@ class _ProductPageState extends State<ProductPage> {
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(width: size.width*0.28,),
+                            SizedBox(
+                              width: size.width * 0.28,
+                            ),
                             Image(image: AssetImage('assets/images/like.png'))
                           ],
                         ),

@@ -128,7 +128,7 @@ class _AddressState extends State<Address> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Container(
-                                        width: size.width * 0.22,
+                                        width: size.width * 0.2,
                                         height: size.height * 0.065,
                                         decoration: new BoxDecoration(
                                           color: const Color(0xFFf2cfd4),
@@ -149,7 +149,7 @@ class _AddressState extends State<Address> {
                                         ),
                                       ),
                                       Container(
-                                        width: size.width * 0.35,
+                                        width: size.width * 0.3,
                                         height: size.height * 0.065,
                                         decoration: new BoxDecoration(
                                           color: const Color(0xFFf2cfd4),
@@ -255,7 +255,7 @@ class _AddressState extends State<Address> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 SizedBox(
-                                  width: size.width * 0.23,
+                                  width: size.width * 0.25,
                                   height: size.height * 0.055,
                                   child: FlatButton.icon(
                                     onPressed: () {

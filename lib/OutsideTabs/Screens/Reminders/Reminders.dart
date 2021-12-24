@@ -106,8 +106,7 @@ class _ReminderState extends State<Reminder> {
                   ),
                   SizedBox(height: size.height*0.022),
                   Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2 - 25,
@@ -119,23 +118,14 @@ class _ReminderState extends State<Reminder> {
                             height: size.height*0.07,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Row(
-                                      children: <Widget>[
-                                        Text(
-                                          " $_date",
-                                          style: const TextStyle(
-                                              color: Colors.grey,
-                                              // fontWeight: FontWeight.bold,
-                                              fontSize: 16),
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                              children: [
+                                Text(
+                                  " $_date",
+                                  style: const TextStyle(
+                                      color: Colors.grey,
+                                      // fontWeight: FontWeight.bold,
+                                      fontSize: 16),
                                 ),
-                                SizedBox(width: size.width*0.07),
                                 IconButton(
                                     onPressed: () {
                                       DatePicker.showDatePicker(context,
@@ -174,43 +164,33 @@ class _ReminderState extends State<Reminder> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Row(
-                                      children: <Widget>[
-                                        Text(
-                                          " $_time",
-                                          style: const TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 16.0),
-                                        ),
-                                         SizedBox(
-                                          width: size.width*0.12,
-                                        ),
-                                        IconButton(
-                                            onPressed: () {
-                                              DatePicker.showTimePicker(context,
-                                                  theme: const DatePickerTheme(
-                                                    containerHeight: 210.0,
-                                                  ),
-                                                  showTitleActions: true,
-                                                  onConfirm: (time) {
-                                                _time =
-                                                    '${time.hour} : ${time.minute} : ${time.second}';
-                                                setState(() {});
-                                              },
-                                                  currentTime: DateTime.now(),
-                                                  locale: LocaleType.en);
-                                              setState(() {});
-                                            },
-                                            icon: const Icon(
-                                              Icons.schedule_rounded,
-                                              color: Colors.grey,
-                                            ))
-                                      ],
-                                    )
-                                  ],
+                                Text(
+                                  " $_time",
+                                  style: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 16.0),
                                 ),
+
+                                IconButton(
+                                    onPressed: () {
+                                      DatePicker.showTimePicker(context,
+                                          theme: const DatePickerTheme(
+                                            containerHeight: 210.0,
+                                          ),
+                                          showTitleActions: true,
+                                          onConfirm: (time) {
+                                        _time =
+                                            '${time.hour} : ${time.minute} : ${time.second}';
+                                        setState(() {});
+                                      },
+                                          currentTime: DateTime.now(),
+                                          locale: LocaleType.en);
+                                      setState(() {});
+                                    },
+                                    icon: const Icon(
+                                      Icons.schedule_rounded,
+                                      color: Colors.grey,
+                                    ),),
                               ],
                             ),
                           ),
@@ -307,23 +287,28 @@ class _ReminderState extends State<Reminder> {
                               thickness: 1,
                             ),
                             SizedBox(height: size.height*0.025),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 188),
-                              child: FlatButton.icon(
-                                  onPressed: () {},
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      side: const BorderSide(color: Colors.grey)
-                                      //    side:  const BorderSide(color: Colors.grey)
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                FlatButton.icon(
+                                    onPressed: () {},
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        side: const BorderSide(color: Colors.grey)
+                                        //    side:  const BorderSide(color: Colors.grey)
+                                        ),
+                                    icon: Icon(
+                                      Icons.add,
+                                      size: 12,
+                                      color: Colors.grey,
+                                    ),
+                                    label: Flexible(
+                                      child: Text(
+                                        'Add relations',
+                                        style: TextStyle(color: Colors.grey,fontSize: 12),
                                       ),
-                                  icon: Icon(
-                                    Icons.add,
-                                    color: Colors.grey,
-                                  ),
-                                  label: Text(
-                                    'Add relations',
-                                    style: TextStyle(color: Colors.grey),
-                                  )),
+                                    )),
+                              ],
                             )
                           ],
                         ),

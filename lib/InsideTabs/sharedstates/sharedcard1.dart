@@ -1,20 +1,18 @@
 import 'package:card_club/InsideTabs/sharedstates/TextDisplay.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'dart:ui' as ui;
 import '../Paint/CustomPaint.dart';
 import '../Paint/Draawing.dart';
 import 'package:card_club/InsideTabs/Screens/PaintPage.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 
-class SharedCard extends StatefulWidget {
-  const SharedCard({Key? key}) : super(key: key);
+class SharedCardBack extends StatefulWidget {
+  const SharedCardBack({Key? key}) : super(key: key);
 
   @override
-  _SharedCardState createState() => _SharedCardState();
+  _SharedCardBackState createState() => _SharedCardBackState();
 }
 
-class _SharedCardState extends State<SharedCard> {
+class _SharedCardBackState extends State<SharedCardBack> {
   @override
   void initState() {
     super.initState();
@@ -53,14 +51,13 @@ class _SharedCardState extends State<SharedCard> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Stack(
       children: [
         Column(
           children: [
             Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 40,
@@ -68,14 +65,14 @@ class _SharedCardState extends State<SharedCard> {
                   child: Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(40),
-                          topLeft: Radius.circular(40)),
+                          bottomRight: Radius.circular(40),
+                          topRight: Radius.circular(40)),
                       side: const BorderSide(
                         color: const Color(0xFFf2cfd4),
                       ),
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Container(
                           color: const Color(0xFFf2cfd4),
@@ -94,7 +91,7 @@ class _SharedCardState extends State<SharedCard> {
                                 child: GestureDetector(
                                   onPanDown: (details) {
                                     setState(() {
-                                      PaintPage.points.add(DrawingArea(
+                                      PaintPage.points1.add(DrawingArea(
                                           point: details.localPosition,
                                           areaPaint: Paint()
                                             ..strokeCap = StrokeCap.round
@@ -105,7 +102,7 @@ class _SharedCardState extends State<SharedCard> {
                                   },
                                   onPanUpdate: (details) {
                                     setState(() {
-                                      PaintPage.points.add(DrawingArea(
+                                      PaintPage.points1.add(DrawingArea(
                                           point: details.localPosition,
                                           areaPaint: Paint()
                                             ..strokeCap = StrokeCap.round
@@ -116,13 +113,13 @@ class _SharedCardState extends State<SharedCard> {
                                   },
                                   onPanEnd: (details) {
                                     setState(() {
-                                      PaintPage.points.add(null);
+                                      PaintPage.points1.add(null);
                                     });
                                   },
                                   child: ClipRRect(
                                     child: CustomPaint(
                                       painter: MyCustomPainter(
-                                          points: PaintPage.points),
+                                          points: PaintPage.points1),
                                     ),
                                   ),
                                 ),

@@ -63,7 +63,7 @@ class _ProfileState extends State<Profile> {
                           width: size.width * 0.12,
                           child: Icon(
                             Icons.more_horiz,
-                            size: 40,
+                            size: 36,
                             color: Colors.black,
                           ),
                         ),
@@ -88,7 +88,7 @@ class _ProfileState extends State<Profile> {
                             width: size.width * 0.12,
                             child: Icon(
                               Icons.mail_outline_rounded,
-                              size: 40,
+                              size: 36,
                               color: Colors.black,
                             ),
                           ),

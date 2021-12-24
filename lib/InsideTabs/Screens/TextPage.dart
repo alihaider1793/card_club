@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:stick_it/stick_it.dart';
 import 'dart:ui' as ui;
 
@@ -7,6 +8,7 @@ import '../sharedstates/TextDisplay.dart';
 import '../Paint/CustomPaint.dart';
 import '../Paint/Draawing.dart';
 import '../sharedstates/sharedcard.dart';
+import '../sharedstates/sharedcard1.dart';
 class TextPage extends StatefulWidget {
   const TextPage({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class TextPage extends StatefulWidget {
 }
 
 class _TextPageState extends State<TextPage> {
-
+  bool status=false;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -34,13 +36,12 @@ class _TextPageState extends State<TextPage> {
             child: Stack(
               children: [
                 Container(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: size.height*0.04),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -79,8 +80,32 @@ class _TextPageState extends State<TextPage> {
                         ),
                       ),
                       SizedBox(height: size.height*0.05),
-                      SharedCard(),
-
+                      status? SharedCardBack():SharedCard(),
+                      Padding(
+                        padding: const EdgeInsets.only(top:10 , right: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            FlutterSwitch(
+                              height: size.height*0.04,
+                              width: size.width*0.16,
+                              valueFontSize: 25.0,
+                              inactiveColor: Colors.grey[400]!,
+                              activeColor:  const Color(0xFFF2CFD4),
+                              //toggleSize: 45.0,
+                              value: status,
+                              borderRadius: 30.0,
+                              //padding: 8.0,
+                              showOnOff: false,
+                              onToggle: (val) {
+                                setState(() {
+                                  status = !status;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

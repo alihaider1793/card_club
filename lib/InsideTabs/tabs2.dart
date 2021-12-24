@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +81,7 @@ class _HomeState extends State<Home> {
               Tab(
                 child: Text(
                   'Paint',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 11),
                 ),
                 // text: "Investing",
                 iconMargin: EdgeInsets.all(8),
@@ -89,7 +90,7 @@ class _HomeState extends State<Home> {
               Tab(
                 child: Text(
                   'Text',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 11),
                 ),
                 iconMargin: EdgeInsets.all(8),
                 icon: Icon(Icons.book),
@@ -102,7 +103,7 @@ class _HomeState extends State<Home> {
               Tab(
                 child: Text(
                   'Stickers',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 11),
                 ),
 
                 iconMargin: EdgeInsets.all(8),
@@ -116,7 +117,7 @@ class _HomeState extends State<Home> {
               Tab(
                 child: Text(
                   "Photos",
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 11),
                 ),
                 iconMargin: EdgeInsets.all(8),
                 icon: Icon(Icons.photo),

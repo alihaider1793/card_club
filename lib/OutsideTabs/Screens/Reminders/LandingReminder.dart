@@ -142,7 +142,7 @@ class _BirthdayState extends State<Birthday> {
                           ),
                         ),
                       ),
-                      SizedBox(height: size.height*0.00688),
+
                       Padding(
                         padding: const EdgeInsets.only(left: 165, right: 165),
                         child: ClipRRect(
@@ -175,48 +175,52 @@ class _BirthdayState extends State<Birthday> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'Reminder(s)',
                               style: TextStyle(
                                   color: const Color(0xFFf2cfd4), fontSize: 22),
                             ),
-                            SizedBox(width: size.width*0.35),
-                            Container(
-                              width: size.width*0.073,
-                              height: size.height*0.042,
-                              decoration: new BoxDecoration(
-                                color: const Color(0xFFf2cfd4),
-                                borderRadius: new BorderRadius.circular(5),
-                              ),
-                              child: Icon(
-                                Icons.refresh,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(width: size.width*0.02),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Reminder(),
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                width: size.width*0.073,
-                                height: size.height*0.042,
-                                decoration: new BoxDecoration(
-                                  color: const Color(0xFFf2cfd4),
-                                  borderRadius: new BorderRadius.circular(5),
-                                ),
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
+                           Row(
+                             children: [
+                               Container(
+                                 width: size.width*0.073,
+                                 height: size.height*0.042,
+                                 decoration: new BoxDecoration(
+                                   color: const Color(0xFFf2cfd4),
+                                   borderRadius: new BorderRadius.circular(5),
+                                 ),
+                                 child: Icon(
+                                   Icons.refresh,
+                                   color: Colors.white,
+                                 ),
+                               ),
+                               SizedBox(width: size.width*0.01),
+                               GestureDetector(
+                                 onTap: () {
+                                   Navigator.push(
+                                     context,
+                                     MaterialPageRoute(
+                                       builder: (context) => Reminder(),
+                                     ),
+                                   );
+                                 },
+                                 child: Container(
+                                   width: size.width*0.073,
+                                   height: size.height*0.042,
+                                   decoration: new BoxDecoration(
+                                     color: const Color(0xFFf2cfd4),
+                                     borderRadius: new BorderRadius.circular(5),
+                                   ),
+                                   child: Icon(
+                                     Icons.add,
+                                     color: Colors.white,
+                                   ),
+                                 ),
+                               ),
+                             ],
+                           )
                           ],
                         ),
                         SizedBox(height: size.height*0.04),
@@ -232,14 +236,13 @@ class _BirthdayState extends State<Birthday> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           _date,
                                           style: const TextStyle(
-                                              fontSize: 20, color: Colors.grey),
+                                              fontSize: 18, color: Colors.grey),
                                         ),
-                                        SizedBox(width: size.width*0.035),
                                         SizedBox(
                                           width: size.width * 0.5,
                                           height: size.height * 0.25,
@@ -270,12 +273,12 @@ class _BirthdayState extends State<Birthday> {
                                                       Text(
                                                         "Mother's Birthday",
                                                         style: TextStyle(
-                                                            fontSize: 20),
+                                                            fontSize: 17),
                                                       ),
                                                       Icon(
                                                         Icons
                                                             .arrow_drop_up_sharp,
-                                                        size: 25,
+                                                        size: 22,
                                                         color: Colors.white,
                                                       )
                                                     ],
@@ -283,13 +286,13 @@ class _BirthdayState extends State<Birthday> {
                                                   Text(
                                                     "3 Days Remaining",
                                                     style:
-                                                        TextStyle(fontSize: 16),
+                                                        TextStyle(fontSize: 14),
                                                   ),
-                                                  SizedBox(height: size.height*0.06),
+                                                  SizedBox(height: size.height*0.05),
                                                   Text(
                                                     "Add more recipients:",
                                                     style:
-                                                        TextStyle(fontSize: 16),
+                                                        TextStyle(fontSize: 15),
                                                   ),
                                                   SizedBox(
                                                     width: size.width * 0.5,

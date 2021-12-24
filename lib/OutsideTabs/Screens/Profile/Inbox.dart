@@ -108,12 +108,12 @@ class _InboxState extends State<Inbox> {
                         itemCount: 10,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
-                            padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                            padding: const EdgeInsets.fromLTRB(20, 0,20, 0),
                             child: Column(
                               children: [
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     CircleAvatar(
                                       child: Text(
@@ -124,7 +124,7 @@ class _InboxState extends State<Inbox> {
                                         ),
                                       ),
                                       backgroundColor: const Color(0xFFF2CFD4),
-                                      radius: 35,
+                                      radius: 33,
                                     ),
                                     SizedBox(width: size.width * 0.04),
                                     Column(
@@ -132,9 +132,16 @@ class _InboxState extends State<Inbox> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "You can get a copy of your digital\ncard here.",
+                                          "You can get a copy of your digital",
                                           style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 16,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                        Text(
+                                          "card here.",
+                                          style: TextStyle(
+                                            fontSize: 16,
                                             color: Colors.black,
                                           ),
                                         ),

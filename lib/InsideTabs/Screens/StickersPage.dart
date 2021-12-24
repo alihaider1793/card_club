@@ -1,4 +1,6 @@
+import 'package:card_club/InsideTabs/sharedstates/sharedcard1.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:stick_it/stick_it.dart';
 import '../sharedstates/sharedcard.dart';
 import 'TextPage.dart';
@@ -11,6 +13,7 @@ class StickersPage extends StatefulWidget {
 }
 
 class _StickersPageState extends State<StickersPage> {
+  bool status=false;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -32,13 +35,13 @@ class _StickersPageState extends State<StickersPage> {
             child: Stack(
               children: [
                 Container(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: size.height * 0.04),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -81,7 +84,32 @@ class _StickersPageState extends State<StickersPage> {
                         ),
                       ),
                       SizedBox(height: size.height * 0.05),
-                      SharedCard(),
+                      status? SharedCardBack():SharedCard(),
+                      Padding(
+                        padding: const EdgeInsets.only(top:10 , right: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            FlutterSwitch(
+                              height: size.height*0.04,
+                              width: size.width*0.16,
+                              valueFontSize: 25.0,
+                              inactiveColor: Colors.grey[400]!,
+                              activeColor:  const Color(0xFFF2CFD4),
+                              //toggleSize: 45.0,
+                              value: status,
+                              borderRadius: 30.0,
+                              //padding: 8.0,
+                              showOnOff: false,
+                              onToggle: (val) {
+                                setState(() {
+                                  status = !status;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

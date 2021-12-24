@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:card_club/InsideTabs/sharedstates/sharedcard1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:get/get.dart';
 import '../sharedstates/sharedcard.dart';
@@ -26,7 +28,6 @@ class _ImagePageState extends State<ImagePage> {
   }
 
   File? pickedImage;
-
 
   //bottom sheet for choosing option
   void imagePickerOption() {
@@ -53,8 +54,8 @@ class _ImagePageState extends State<ImagePage> {
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
-                   SizedBox(
-                    height: MediaQuery.of(context).size.height*0.01,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(primary: Colors.white),
@@ -83,8 +84,8 @@ class _ImagePageState extends State<ImagePage> {
                       style: TextStyle(color: Color(0xFFf2cfd4)),
                     ),
                   ),
-                   SizedBox(
-                    height: MediaQuery.of(context).size.height*0.01,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   Padding(
                     padding:
@@ -154,6 +155,8 @@ class _ImagePageState extends State<ImagePage> {
     );
   }
 
+  bool status = false;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -162,13 +165,13 @@ class _ImagePageState extends State<ImagePage> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 0, 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: size.height*0.04),
+                SizedBox(height: size.height * 0.04),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                  padding: const EdgeInsets.only(right: 20,left: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -208,10 +211,10 @@ class _ImagePageState extends State<ImagePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: size.height*0.05),
+                SizedBox(height: size.height * 0.05),
                 Stack(
                   children: [
-                    SharedCard(),
+                    status?SharedCardBack():SharedCard(),
                     pickedImage != null
                         ? Positioned(
                             left: offset.dx,
@@ -246,6 +249,32 @@ class _ImagePageState extends State<ImagePage> {
                           ),
                   ],
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(top:10 , right: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      FlutterSwitch(
+                        height: size.height*0.04,
+                        width: size.width*0.16,
+                        valueFontSize: 25.0,
+                        inactiveColor: Colors.grey[400]!,
+                        activeColor:  const Color(0xFFF2CFD4),
+                        //toggleSize: 45.0,
+                        value: status,
+                        borderRadius: 30.0,
+                        //padding: 8.0,
+                        showOnOff: false,
+                        onToggle: (val) {
+                          setState(() {
+                            status = !status;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: size.height*0.03),
                 Center(
                   child: FlatButton(
                     shape: ContinuousRectangleBorder(

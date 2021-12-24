@@ -15,7 +15,6 @@ class Birthday extends StatefulWidget {
 class _BirthdayState extends State<Birthday> {
   final DateRangePickerController _controller = DateRangePickerController();
   String _date = DateFormat('dd/MM/yyyy').format(DateTime.now()).toString();
-
   void selectionChanged(DateRangePickerSelectionChangedArgs args) {
     SchedulerBinding.instance!.addPostFrameCallback((duration) {
       setState(() {
@@ -140,7 +139,8 @@ class _BirthdayState extends State<Birthday> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              setState(() {});
+                              setState(() {
+                              });
                             },
                             child: Card(
                               child: Container(
@@ -402,7 +402,7 @@ class _BirthdayState extends State<Birthday> {
                         initialSelectedDate: DateTime(2021, 01, 01),
                         todayHighlightColor: Colors.grey[400],
                         initialDisplayDate: DateTime(2021, 01, 01),
-                        selectionColor: const Color(0xFFf2cfd4),
+                        selectionColor:  Color(0xFF124d00),
                         view: DateRangePickerView.month,
                         onSelectionChanged: selectionChanged,
                         monthViewSettings: DateRangePickerMonthViewSettings(
@@ -416,7 +416,7 @@ class _BirthdayState extends State<Birthday> {
                         headerStyle: DateRangePickerHeaderStyle(
                           textAlign: TextAlign.center,
                           textStyle: TextStyle(
-                            color: const Color(0xFFf2cfd4),
+                            color: Color(0xFF124d00),
                             fontSize: 23,
                           ),
                         ),
