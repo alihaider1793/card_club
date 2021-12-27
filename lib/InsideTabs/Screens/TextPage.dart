@@ -36,6 +36,71 @@ class _TextPageState extends State<TextPage> {
             child: Stack(
               children: [
                 Container(
+                  color: Colors.transparent,
+                  width: size.width * 1,
+                  height: size.height * 0.83,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Center(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              IconButton(
+                                color: Color(0xFFf2cfd4),
+                                onPressed: () {
+                                  setState(() {
+                                    TextDisplay.shouldDisplay = false;
+                                  });
+                                },
+                                icon: const Icon(Icons.cancel),
+                              ),
+                              Expanded(
+                                child: SizedBox(
+                                  width: size.width * 0.5,
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                      hintText: 'Enter your text',
+                                      fillColor: Colors.white,
+                                      hintStyle: TextStyle(color: Colors.grey),
+                                      filled: true,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color(0xFFf2cfd4), width: 1.5),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color(0xFFf2cfd4), width: 1.5),
+                                      ),
+                                    ),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        TextDisplay.text = value;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                color: Color(0xFFf2cfd4),
+                                onPressed: () {
+                                  setState(() {
+                                    TextDisplay.shouldDisplay = true;
+                                  });
+                                },
+                                icon: const Icon(Icons.done),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -109,69 +174,7 @@ class _TextPageState extends State<TextPage> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 530, 10, 0),
-                  child: Container(
-                    color: Colors.transparent,
-                    width: size.width * 1,
-                    height: size.height * 0.08,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      child: Center(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            IconButton(
-                              color: Color(0xFFf2cfd4),
-                              onPressed: () {
-                                setState(() {
-                                  TextDisplay.shouldDisplay = false;
-                                });
-                              },
-                              icon: const Icon(Icons.cancel),
-                            ),
-                            Expanded(
-                              child: SizedBox(
-                                width: size.width * 0.5,
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    hintText: 'Enter your text',
-                                    fillColor: Colors.white,
-                                    hintStyle: TextStyle(color: Colors.grey),
-                                    filled: true,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Color(0xFFf2cfd4), width: 1.5),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Color(0xFFf2cfd4), width: 1.5),
-                                    ),
-                                  ),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      TextDisplay.text = value;
-                                    });
-                                  },
-                                ),
-                              ),
-                            ),
-                            IconButton(
-                              color: Color(0xFFf2cfd4),
-                              onPressed: () {
-                                setState(() {
-                                  TextDisplay.shouldDisplay = true;
-                                });
-                              },
-                              icon: const Icon(Icons.done),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+
               ],
             ),
           ),

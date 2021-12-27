@@ -76,727 +76,771 @@ class _BirthdayState extends State<Birthday> {
           child: Container(
             width: size.width * 1,
             height: size.height * 1,
-            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    SizedBox(
-                      width: size.width * 0.2,
-                      height: size.height * 0.042,
-                      child: FlatButton(
-                        shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(17),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Signin(),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            width: size.width * 0.2,
+                            height: size.height * 0.042,
+                            child: FlatButton(
+                              shape: ContinuousRectangleBorder(
+                                borderRadius: BorderRadius.circular(17),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Signin(),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                'Skip',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18),
+                              ),
+                              color: const Color(0xFFf2cfd4),
                             ),
-                          );
-                        },
-                        child: const Text(
-                          'Skip',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                        color: const Color(0xFFf2cfd4),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: size.height * 0.02),
-                const Text(
-                  'Birthday!',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: size.height * 0.015),
-                const Text(
-                  'Help friends celebrate your birthday when its \ntime to celebrate... you!',
-                  style: TextStyle(
-                    fontSize: 17,
+                      SizedBox(height: size.height * 0.02),
+                      const Text(
+                        'Birthday!',
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: size.height * 0.015),
+                      const Text(
+                        'Help friends celebrate your birthday when its \ntime to celebrate... you!',
+                        style: TextStyle(
+                          fontSize: 17,
+                        ),
+                      ),
+                      SizedBox(height: size.height * 0.02),
+                    ],
                   ),
                 ),
-                SizedBox(height: size.height * 0.02),
-                Card(
-                  elevation: 1,
-                  shape: ContinuousRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    side: BorderSide(color: Colors.grey[300]!),
-                  ),
-                  child: Container(
-                    margin: const EdgeInsets.fromLTRB(25, 10, 25, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          _date,
-                          style: const TextStyle(
-                            fontSize: 20,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 1,
+                        shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          side: BorderSide(color: Colors.grey[300]!),
+                        ),
+                        child: Container(
+                          margin: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                _date,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                              const Icon(
+                                Icons.date_range_outlined,
+                                size: 30,
+                                color: Colors.grey,
+                              ),
+                            ],
                           ),
                         ),
-                        const Icon(
-                          Icons.date_range_outlined,
-                          size: 30,
-                          color: Colors.grey,
+                      ),
+                      Card(
+                        elevation: 1.5,
+                        shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          side: BorderSide(color: Colors.grey[300]!),
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  child: Card(
-                    elevation: 1.5,
-                    shape: ContinuousRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      side: BorderSide(color: Colors.grey[300]!),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: size.height * 0.02),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(
-                              Icons.arrow_back_ios_sharp,
-                              size: 20,
-                              color: const Color(0xFFf2cfd4),
-                            ),
-                            Container(
-                              width: size.width * 0.14,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
+                            SizedBox(height: size.height * 0.02),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  Icons.arrow_back_ios_sharp,
+                                  size: 20,
+                                  color: const Color(0xFFf2cfd4),
                                 ),
-                                color: year1
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    year1 = !year1;
-                                    year2 = false;
-                                    year3 = false;
-                                    year4 = false;
-                                    year5 = false;
-                                  });
-                                },
-                                child: Text(
-                                  years[0],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: year1 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.16,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: year1
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        year1 = !year1;
+                                        year2 = false;
+                                        year3 = false;
+                                        year4 = false;
+                                        year5 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      years[0],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color:
+                                            year1 ? Colors.white : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.14,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: year2
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    year2 = !year2;
-                                    year1 = false;
-                                    year3 = false;
-                                    year4 = false;
-                                    year5 = false;
-                                  });
-                                },
-                                child: Text(
-                                  years[1],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: year2 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.16,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: year2
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        year2 = !year2;
+                                        year1 = false;
+                                        year3 = false;
+                                        year4 = false;
+                                        year5 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      years[1],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color:
+                                            year2 ? Colors.white : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.14,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: year3
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    year3 = !year3;
-                                    year1 = false;
-                                    year2 = false;
-                                    year4 = false;
-                                    year5 = false;
-                                  });
-                                },
-                                child: Text(
-                                  years[2],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: year3 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.16,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: year3
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        year3 = !year3;
+                                        year1 = false;
+                                        year2 = false;
+                                        year4 = false;
+                                        year5 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      years[2],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color:
+                                            year3 ? Colors.white : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.14,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: year4
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    year4 = !year4;
-                                    year1 = false;
-                                    year2 = false;
-                                    year3 = false;
-                                    year5 = false;
-                                  });
-                                },
-                                child: Text(
-                                  years[3],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: year4 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.16,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: year4
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        year4 = !year4;
+                                        year1 = false;
+                                        year2 = false;
+                                        year3 = false;
+                                        year5 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      years[3],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color:
+                                            year4 ? Colors.white : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.14,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: year5
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    year5 = !year5;
-                                    year1 = false;
-                                    year2 = false;
-                                    year3 = false;
-                                    year4 = false;
-                                  });
-                                },
-                                child: Text(
-                                  years[4],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: year5 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.16,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: year5
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        year5 = !year5;
+                                        year1 = false;
+                                        year2 = false;
+                                        year3 = false;
+                                        year4 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      years[4],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color:
+                                            year5 ? Colors.white : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios_sharp,
-                              size: 20,
-                              color: const Color(0xFFf2cfd4),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: size.height * 0.01),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: size.width * 0.122,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
+                                Icon(
+                                  Icons.arrow_forward_ios_sharp,
+                                  size: 20,
+                                  color: const Color(0xFFf2cfd4),
                                 ),
-                                color: month1
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month1 = !month1;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[0],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: month1 ? Colors.white : Colors.black,
+                              ],
+                            ),
+                            SizedBox(height: size.height * 0.01),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month1
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month1 = !month1;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[0],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color: month1
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.122,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month2
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month2 = !month2;
-                                    month1 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[1],
-                                  style: TextStyle(
-                                    color: month2 ? Colors.white : Colors.black,
-                                    fontSize: 12,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month2
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month2 = !month2;
+                                        month1 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[1],
+                                      style: TextStyle(
+                                        color: month2
+                                            ? Colors.white
+                                            : Colors.black,
+                                        fontSize: 11,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.13,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month3
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month3 = !month3;
-                                    month2 = false;
-                                    month1 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[2],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: month3 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month3
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month3 = !month3;
+                                        month2 = false;
+                                        month1 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[2],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color: month3
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.12,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month4
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month4 = !month4;
-                                    month2 = false;
-                                    month3 = false;
-                                    month1 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[3],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: month4 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month4
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month4 = !month4;
+                                        month2 = false;
+                                        month3 = false;
+                                        month1 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[3],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color: month4
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.13,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month5
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month5 = !month5;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month1 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[4],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: month5 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month5
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month5 = !month5;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month1 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[4],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color: month5
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.122,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month6
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month6 = !month6;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month1 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[5],
-                                  style: TextStyle(
-                                    color: month6 ? Colors.white : Colors.black,
-                                    fontSize: 12,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month6
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month6 = !month6;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month1 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[5],
+                                      style: TextStyle(
+                                        color: month6
+                                            ? Colors.white
+                                            : Colors.black,
+                                        fontSize: 11,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
-                        SizedBox(height: size.height * 0.01),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: size.width * 0.12,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month7
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month7 = !month7;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month1 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[6],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: month7 ? Colors.white : Colors.black,
+                            SizedBox(height: size.height * 0.005),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month7
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month7 = !month7;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month1 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[6],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color: month7
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.13,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month8
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month8 = !month8;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month1 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[7],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: month8 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month8
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month8 = !month8;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month1 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[7],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color: month8
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.125,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month9
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month9 = !month9;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month1 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[8],
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: month9 ? Colors.white : Colors.black,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month9
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month9 = !month9;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month1 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[8],
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color: month9
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.12,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month10
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month10 = !month10;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month1 = false;
-                                    month11 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[9],
-                                  style: TextStyle(
-                                    color:
-                                        month10 ? Colors.white : Colors.black,
-                                    fontSize: 12,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month10
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month10 = !month10;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month1 = false;
+                                        month11 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[9],
+                                      style: TextStyle(
+                                        color: month10
+                                            ? Colors.white
+                                            : Colors.black,
+                                        fontSize: 11,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.13,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month11
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month11 = !month11;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month1 = false;
-                                    month12 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[10],
-                                  style: TextStyle(
-                                    color:
-                                        month11 ? Colors.white : Colors.black,
-                                    fontSize: 12,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month11
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month11 = !month11;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month1 = false;
+                                        month12 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[10],
+                                      style: TextStyle(
+                                        color: month11
+                                            ? Colors.white
+                                            : Colors.black,
+                                        fontSize: 11,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.125,
-                              height: size.height * 0.04,
-                              child: FlatButton(
-                                shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                color: month12
-                                    ? Color(0xFF124d00)
-                                    : Colors.grey[300],
-                                onPressed: () {
-                                  setState(() {
-                                    month12 = !month12;
-                                    month2 = false;
-                                    month3 = false;
-                                    month4 = false;
-                                    month5 = false;
-                                    month6 = false;
-                                    month7 = false;
-                                    month8 = false;
-                                    month9 = false;
-                                    month10 = false;
-                                    month11 = false;
-                                    month1 = false;
-                                  });
-                                },
-                                child: Text(
-                                  months[11],
-                                  style: TextStyle(
-                                    color:
-                                        month12 ? Colors.white : Colors.black,
-                                    fontSize: 12,
+                                Container(
+                                  width: size.width * 0.15,
+                                  height: size.height * 0.04,
+                                  child: FlatButton(
+                                    shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    color: month12
+                                        ? Color(0xFF124d00)
+                                        : Colors.grey[300],
+                                    onPressed: () {
+                                      setState(() {
+                                        month12 = !month12;
+                                        month2 = false;
+                                        month3 = false;
+                                        month4 = false;
+                                        month5 = false;
+                                        month6 = false;
+                                        month7 = false;
+                                        month8 = false;
+                                        month9 = false;
+                                        month10 = false;
+                                        month11 = false;
+                                        month1 = false;
+                                      });
+                                    },
+                                    child: Text(
+                                      months[11],
+                                      style: TextStyle(
+                                        color: month12
+                                            ? Colors.white
+                                            : Colors.black,
+                                        fontSize: 11,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
-                        SfDateRangePicker(
-                          controller: _controller,
-                          initialSelectedDate: DateTime(2021, 01, 01),
-                          todayHighlightColor: Colors.grey[400],
-                          initialDisplayDate: DateTime(2021, 01, 01),
-                          selectionColor: Color(0xFF124d00),
-                          view: DateRangePickerView.month,
-                          onSelectionChanged: selectionChanged,
-                          monthViewSettings: DateRangePickerMonthViewSettings(
-                            viewHeaderStyle: DateRangePickerViewHeaderStyle(
+                            SfDateRangePicker(
+                              controller: _controller,
+                              initialSelectedDate: DateTime(2021, 01, 01),
+                              todayHighlightColor: Colors.grey[400],
+                              initialDisplayDate: DateTime(2021, 01, 01),
+                              selectionColor: Color(0xFF124d00),
+                              view: DateRangePickerView.month,
+                              onSelectionChanged: selectionChanged,
+                              monthViewSettings:
+                                  DateRangePickerMonthViewSettings(
+                                viewHeaderStyle: DateRangePickerViewHeaderStyle(
+                                    textStyle: TextStyle(
+                                        color: Colors.grey[400], fontSize: 13)),
+                                firstDayOfWeek: 1,
+                                dayFormat: 'EEE',
+                              ),
+                              showNavigationArrow: true,
+                              headerStyle: DateRangePickerHeaderStyle(
+                                textAlign: TextAlign.center,
                                 textStyle: TextStyle(
-                                    color: Colors.grey[400], fontSize: 13)),
-                            firstDayOfWeek: 1,
-                            dayFormat: 'EEE',
-                          ),
-                          showNavigationArrow: true,
-                          headerStyle: DateRangePickerHeaderStyle(
-                            textAlign: TextAlign.center,
-                            textStyle: TextStyle(
-                              color: Color(0xFF124d00),
-                              fontSize: 23,
+                                  color: Color(0xFF124d00),
+                                  fontSize: 23,
+                                ),
+                              ),
+                              monthCellStyle:
+                                  const DateRangePickerMonthCellStyle(),
                             ),
-                          ),
-                          monthCellStyle: const DateRangePickerMonthCellStyle(),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: size.height * 0.02),
-                Container(
-                  width: size.width * 0.9,
-                  height: size.height * 0.075,
-                  child: FlatButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50)),
-                    color: const Color(0xFFF2CFD4),
-                    onPressed: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Signin(),
-                        ),
-                      )
-                    },
-                    child: Text(
-                      "Create account",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                  child: Container(
+                    width: size.width * 0.9,
+                    height: size.height * 0.075,
+                    child: FlatButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50)),
+                      color: const Color(0xFFF2CFD4),
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Signin(),
+                          ),
+                        )
+                      },
+                      child: Text(
+                        "Create account",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ),
                   ),
                 ),

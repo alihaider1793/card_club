@@ -162,7 +162,7 @@ class EnableNotification extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
-                            left: 30, right: 30, bottom: 40),
+                            left: 30, right: 30, bottom: 60),
                         child: Container(
                           width: size.width * 0.8,
                           height: size.height * 0.08,
@@ -180,7 +180,6 @@ class EnableNotification extends StatelessWidget {
                             },
                             child: Text(
                               "I want to be notified",
-                              textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 16),
                             ),
                           ),

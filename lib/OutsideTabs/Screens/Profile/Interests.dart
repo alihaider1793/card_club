@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class Interests extends StatefulWidget {
   const Interests({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class Interests extends StatefulWidget {
 }
 
 class _InterestsState extends State<Interests> {
+  bool status=false;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -70,7 +72,7 @@ class _InterestsState extends State<Interests> {
                                 'Done',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 17,
                                   color: Color(0xFFf2cfd4),
                                 ),
                               ),
@@ -164,7 +166,7 @@ class _InterestsState extends State<Interests> {
                     ),
                     elevation: 5,
                     child: Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.fromLTRB(15,15,30,15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -182,8 +184,22 @@ class _InterestsState extends State<Interests> {
                               )
                             ],
                           ),
-                          Icon(Icons.toggle_on,
-                              size: 50, color: const Color(0xFFf2cfd4)),
+                          FlutterSwitch(
+                            height: size.height*0.04,
+                            width: size.width*0.13,
+                            valueFontSize: 25.0,
+                            inactiveColor: Colors.grey[400]!,
+                            activeColor:  const Color(0xFFF2CFD4),
+                            value: status,
+                            borderRadius: 30.0,
+                            //padding: 8.0,
+                            showOnOff: false,
+                            onToggle: (val) {
+                              setState(() {
+                                status = !status;
+                              });
+                            },
+                          ),
                         ],
                       ),
                     ),
