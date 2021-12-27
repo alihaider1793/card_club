@@ -55,7 +55,7 @@ class _InterestsState extends State<Interests> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           SizedBox(
-                            width: size.width * 0.2,
+                            width: size.width * 0.25,
                             height: size.height * 0.05,
                             child: RaisedButton(
                               elevation: 2,

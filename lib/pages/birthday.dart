@@ -1,4 +1,3 @@
-import 'package:card_club/pages/enable_notification.dart';
 import 'package:card_club/pages/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -15,6 +14,7 @@ class Birthday extends StatefulWidget {
 class _BirthdayState extends State<Birthday> {
   final DateRangePickerController _controller = DateRangePickerController();
   String _date = DateFormat('dd/MM/yyyy').format(DateTime.now()).toString();
+
   void selectionChanged(DateRangePickerSelectionChangedArgs args) {
     SchedulerBinding.instance!.addPostFrameCallback((duration) {
       setState(() {
@@ -23,6 +23,9 @@ class _BirthdayState extends State<Birthday> {
     });
   }
 
+  List<bool> attention = [true, false];
+  List<String> yearpress = ['year1', 'year2', 'year3', 'year4', 'year5'];
+  List<String> years = ['2018', '2019', '2020', '2021', '2022'];
   List<String> months = [
     'Jan',
     'Feb',
@@ -35,8 +38,33 @@ class _BirthdayState extends State<Birthday> {
     'Sep',
     'Oct',
     'Nov',
-    'Dec'
+    'Dec',
   ];
+
+  bool year1 = false;
+  bool year2 = false;
+  bool year3 = false;
+  bool year4 = false;
+  bool year5 = false;
+  bool month1 = false;
+  bool month2 = false;
+  bool month3 = false;
+  bool month4 = false;
+  bool month5 = false;
+  bool month6 = false;
+  bool month7 = false;
+  bool month8 = false;
+  bool month9 = false;
+  bool month10 = false;
+  bool month11 = false;
+  bool month12 = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    attention = [false];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,311 +146,635 @@ class _BirthdayState extends State<Birthday> {
                     ),
                   ),
                 ),
-                Card(
-                  elevation: 1.5,
-                  shape: ContinuousRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    side: BorderSide(color: Colors.grey[300]!),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: size.height * 0.01),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.arrow_back_ios_sharp,
-                            size: 15,
-                            color: const Color(0xFFf2cfd4),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                              });
-                            },
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(1, 1, 1, 1),
-                                child: const Text(
-                                  '2018',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
-                                child: const Text(
-                                  '2019',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
-                                child: const Text(
-                                  '2020',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
-                                child: const Text(
-                                  '2021',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ),
+                GestureDetector(
+                  child: Card(
+                    elevation: 1.5,
+                    shape: ContinuousRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      side: BorderSide(color: Colors.grey[300]!),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: size.height * 0.02),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.arrow_back_ios_sharp,
+                              size: 20,
                               color: const Color(0xFFf2cfd4),
                             ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(3, 1, 3, 1),
-                                child: const Text(
-                                  '2022',
-                                  style: TextStyle(fontSize: 16),
+                            Container(
+                              width: size.width * 0.14,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: year1
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    year1 = !year1;
+                                    year2 = false;
+                                    year3 = false;
+                                    year4 = false;
+                                    year5 = false;
+                                  });
+                                },
+                                child: Text(
+                                  years[0],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: year1 ? Colors.white : Colors.black,
+                                  ),
                                 ),
                               ),
-                              color: Colors.grey[200],
-                              elevation: 0,
                             ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            size: 15,
-                            color: const Color(0xFFf2cfd4),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: size.height * 0.01),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Jan',
-                                  style: TextStyle(fontSize: 18),
+                            Container(
+                              width: size.width * 0.14,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: year2
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    year2 = !year2;
+                                    year1 = false;
+                                    year3 = false;
+                                    year4 = false;
+                                    year5 = false;
+                                  });
+                                },
+                                child: Text(
+                                  years[1],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: year2 ? Colors.white : Colors.black,
+                                  ),
                                 ),
                               ),
-                              color: Colors.grey[200],
-                              elevation: 0,
                             ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Feb',
-                                  style: TextStyle(fontSize: 18),
+                            Container(
+                              width: size.width * 0.14,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: year3
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    year3 = !year3;
+                                    year1 = false;
+                                    year2 = false;
+                                    year4 = false;
+                                    year5 = false;
+                                  });
+                                },
+                                child: Text(
+                                  years[2],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: year3 ? Colors.white : Colors.black,
+                                  ),
                                 ),
                               ),
-                              color: Colors.grey[200],
-                              elevation: 0,
                             ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Mar',
-                                  style: TextStyle(fontSize: 18),
+                            Container(
+                              width: size.width * 0.14,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: year4
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    year4 = !year4;
+                                    year1 = false;
+                                    year2 = false;
+                                    year3 = false;
+                                    year5 = false;
+                                  });
+                                },
+                                child: Text(
+                                  years[3],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: year4 ? Colors.white : Colors.black,
+                                  ),
                                 ),
                               ),
-                              color: Colors.grey[200],
-                              elevation: 0,
                             ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Apr',
-                                  style: TextStyle(fontSize: 18),
+                            Container(
+                              width: size.width * 0.14,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: year5
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    year5 = !year5;
+                                    year1 = false;
+                                    year2 = false;
+                                    year3 = false;
+                                    year4 = false;
+                                  });
+                                },
+                                child: Text(
+                                  years[4],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: year5 ? Colors.white : Colors.black,
+                                  ),
                                 ),
                               ),
-                              color: Colors.grey[200],
-                              elevation: 0,
                             ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'May',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Jun',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Jul',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Aug',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Sep',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Oct',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              color: Colors.grey[200],
-                              elevation: 0,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Nov',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
+                            Icon(
+                              Icons.arrow_forward_ios_sharp,
+                              size: 20,
                               color: const Color(0xFFf2cfd4),
-                              elevation: 0,
                             ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {});
-                            },
-                            child: Card(
-                              child: Container(
-                                margin: const EdgeInsets.fromLTRB(5, 1, 5, 1),
-                                child: const Text(
-                                  'Dec',
-                                  style: TextStyle(fontSize: 18),
+                          ],
+                        ),
+                        SizedBox(height: size.height * 0.01),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              width: size.width * 0.122,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month1
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month1 = !month1;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[0],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: month1 ? Colors.white : Colors.black,
+                                  ),
                                 ),
                               ),
-                              color: Colors.grey[200],
-                              elevation: 0,
+                            ),
+                            Container(
+                              width: size.width * 0.122,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month2
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month2 = !month2;
+                                    month1 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[1],
+                                  style: TextStyle(
+                                    color: month2 ? Colors.white : Colors.black,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.13,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month3
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month3 = !month3;
+                                    month2 = false;
+                                    month1 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[2],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: month3 ? Colors.white : Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.12,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month4
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month4 = !month4;
+                                    month2 = false;
+                                    month3 = false;
+                                    month1 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[3],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: month4 ? Colors.white : Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.13,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month5
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month5 = !month5;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month1 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[4],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: month5 ? Colors.white : Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.122,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month6
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month6 = !month6;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month1 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[5],
+                                  style: TextStyle(
+                                    color: month6 ? Colors.white : Colors.black,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: size.height * 0.01),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              width: size.width * 0.12,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month7
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month7 = !month7;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month1 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[6],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: month7 ? Colors.white : Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.13,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month8
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month8 = !month8;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month1 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[7],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: month8 ? Colors.white : Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.125,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month9
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month9 = !month9;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month1 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[8],
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: month9 ? Colors.white : Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.12,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month10
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month10 = !month10;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month1 = false;
+                                    month11 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[9],
+                                  style: TextStyle(
+                                    color:
+                                        month10 ? Colors.white : Colors.black,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.13,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month11
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month11 = !month11;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month1 = false;
+                                    month12 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[10],
+                                  style: TextStyle(
+                                    color:
+                                        month11 ? Colors.white : Colors.black,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: size.width * 0.125,
+                              height: size.height * 0.04,
+                              child: FlatButton(
+                                shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                color: month12
+                                    ? Color(0xFF124d00)
+                                    : Colors.grey[300],
+                                onPressed: () {
+                                  setState(() {
+                                    month12 = !month12;
+                                    month2 = false;
+                                    month3 = false;
+                                    month4 = false;
+                                    month5 = false;
+                                    month6 = false;
+                                    month7 = false;
+                                    month8 = false;
+                                    month9 = false;
+                                    month10 = false;
+                                    month11 = false;
+                                    month1 = false;
+                                  });
+                                },
+                                child: Text(
+                                  months[11],
+                                  style: TextStyle(
+                                    color:
+                                        month12 ? Colors.white : Colors.black,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SfDateRangePicker(
+                          controller: _controller,
+                          initialSelectedDate: DateTime(2021, 01, 01),
+                          todayHighlightColor: Colors.grey[400],
+                          initialDisplayDate: DateTime(2021, 01, 01),
+                          selectionColor: Color(0xFF124d00),
+                          view: DateRangePickerView.month,
+                          onSelectionChanged: selectionChanged,
+                          monthViewSettings: DateRangePickerMonthViewSettings(
+                            viewHeaderStyle: DateRangePickerViewHeaderStyle(
+                                textStyle: TextStyle(
+                                    color: Colors.grey[400], fontSize: 13)),
+                            firstDayOfWeek: 1,
+                            dayFormat: 'EEE',
+                          ),
+                          showNavigationArrow: true,
+                          headerStyle: DateRangePickerHeaderStyle(
+                            textAlign: TextAlign.center,
+                            textStyle: TextStyle(
+                              color: Color(0xFF124d00),
+                              fontSize: 23,
                             ),
                           ),
-                        ],
-                      ),
-                      SfDateRangePicker(
-                        controller: _controller,
-                        initialSelectedDate: DateTime(2021, 01, 01),
-                        todayHighlightColor: Colors.grey[400],
-                        initialDisplayDate: DateTime(2021, 01, 01),
-                        selectionColor:  Color(0xFF124d00),
-                        view: DateRangePickerView.month,
-                        onSelectionChanged: selectionChanged,
-                        monthViewSettings: DateRangePickerMonthViewSettings(
-                          viewHeaderStyle: DateRangePickerViewHeaderStyle(
-                              textStyle: TextStyle(
-                                  color: Colors.grey[400], fontSize: 13)),
-                          firstDayOfWeek: 1,
-                          dayFormat: 'EEE',
+                          monthCellStyle: const DateRangePickerMonthCellStyle(),
                         ),
-                        showNavigationArrow: true,
-                        headerStyle: DateRangePickerHeaderStyle(
-                          textAlign: TextAlign.center,
-                          textStyle: TextStyle(
-                            color: Color(0xFF124d00),
-                            fontSize: 23,
-                          ),
-                        ),
-                        monthCellStyle: const DateRangePickerMonthCellStyle(),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: size.height * 0.02),
